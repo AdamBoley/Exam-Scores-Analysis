@@ -88,3 +88,8 @@ After deciding to use this dataset, I noted down some quick thoughts regarding h
 Project repository started and workspace built. Necessary data analysis and machine learning packages installed. Business Requirements, hypotheses, dashboard layout, and approach documented in ReadMe.
 
 
+## Credits
+
+https://stackoverflow.com/questions/34734940/row-wise-average-for-a-subset-of-columns-with-missing-values - for average row values
+
+
