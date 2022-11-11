@@ -5,8 +5,10 @@ base58==2.1.1
 blinker==1.5
 cachetools==5.2.0
 click==7.1.2
+contourpy==1.0.6
 cycler==0.11.0
 feature-engine==1.0.2
+fonttools==4.38.0
 htmlmin==0.1.12
 ImageHash==4.3.1
 imbalanced-learn==0.8.0
@@ -18,7 +20,7 @@ kiwisolver==1.4.4
 lazy_loader==0.1rc2
 littleutils==0.2.2
 MarkupSafe==2.0.1
-matplotlib==3.3.1
+matplotlib==3.6.0
 missingno==0.5.1
 multimethod==1.9
 networkx==2.8.8

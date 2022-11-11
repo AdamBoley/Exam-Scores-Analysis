@@ -28,6 +28,8 @@ After discussions with the local government, I have formulated several hypothese
 
 - I hypothesize that students who attend the test preparation course attain higher test scores
 
+- I hypothesize that a student's lunch program has an effect on their test scores
+
 - I hypothesize that increased levels of parental education negatively correlate to their children's participation in the free/reduced school lunch program. For this hypothesis, I have made the reasonable assumption that better educated parents earn higher wages, and that the free/reduced school lunch program is only available to poorer parents
 
 - I hypothesize that increased levels of parental education correlate with higher test scores. For this hypothesis, I have made the reasonable assumption that better educated parents have a greater focus on education
@@ -87,9 +89,15 @@ After deciding to use this dataset, I noted down some quick thoughts regarding h
 9/11/22:
 Project repository started and workspace built. Necessary data analysis and machine learning packages installed. Business Requirements, hypotheses, dashboard layout, and approach documented in ReadMe.
 
+10/11/22:
+Generate Pandas Profile Report, distribution analysis using QQ plots and Shapiro Wilk tests. Numerical data may or may not be normally distributed. Begin correlation study
+
+11/11/22:
+I think I need to go back one step, and expand the data analysis more in line with the hypotheses, with more plots.
+
 
 ## Credits
 
 https://stackoverflow.com/questions/34734940/row-wise-average-for-a-subset-of-columns-with-missing-values - for average row values
 
-
+https://stackoverflow.com/questions/40088585/turn-off-error-bars-in-seaborn-bar-plot
