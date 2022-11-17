@@ -95,9 +95,14 @@ Generate Pandas Profile Report, distribution analysis using QQ plots and Shapiro
 11/11/22:
 I think I need to go back one step, and expand the data analysis more in line with the hypotheses, with more plots.
 
+17/11/22:
+
+
 
 ## Credits
 
 https://stackoverflow.com/questions/34734940/row-wise-average-for-a-subset-of-columns-with-missing-values - for average row values
 
-https://stackoverflow.com/questions/40088585/turn-off-error-bars-in-seaborn-bar-plot
+https://stackoverflow.com/questions/40088585/turn-off-error-bars-in-seaborn-bar-plot - add values to barplots and remove confidence intervals
+
+https://stackoverflow.com/questions/34615854/seaborn-countplot-with-normalized-y-axis-per-group - seaborn countplot with normalised y-axis counts
