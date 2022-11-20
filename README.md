@@ -48,6 +48,8 @@ then a student's ethnicity has an effect on their participation in the free/redu
 - I hypothesize that, assuming that the hypothesis that parental educational level correlates with participation in the test preparation course is true, 
 then a student's ethnicity has an effect on their participation in the test preparation course
 
+- I hypothesize that a student's gender has an effect on their participation in the test preparation course
+
 - I hypothesize that students who achieve high scores in reading also achieve high scores in writing
 
 ## Dashboard pages
