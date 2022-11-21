@@ -8,13 +8,13 @@ This is a Machine Learning project developed as part of my Predictive Analytics 
 
 ## Business Requirements
 
-The local government wants to increase educational attainment in its schools, primarily by improving test scores in reading, writing and mathematics. They have access to data about past students' test scores, as well as information about those students' circumstances. The local government has contracted me undertake 2 tasks:
+The local government wants to increase educational attainment in its schools, primarily by improving test scores in reading, writing and mathematics. They have access to data about past students' test scores, as well as information about those students' circumstances. The local government has contracted me to undertake 3 tasks:
 
 - Firstly, they want me to study the student data to find patterns and relationships, with the goal of identifying the most relevant variables that correlate to high test scores. These correlations will then be used to formulate educational policy with the aim of improving student test scores generally
 
-- Secondly, they want me to produce a Machine Learning tool that their teachers can use to input data about a particular student and get a predictions of that student's test scores. Then, if those test scores fall below the mean of the historical test scores, that student can be offered additional support.
+- Secondly, they want me to produce a Machine Learning tool that their teachers can use to input data about a particular student and get a predictions of that student's test scores. Then, if those test scores fall below the mean of the historical test scores, that student can be offered additional support
 
-- Thirdly, the local government has indicated that both the test scores analysis and the Machine Learning tool be held within a dashboard for ease of use.
+- Thirdly, the local government has indicated that both the test scores analysis and the Machine Learning tool be held within a dashboard for ease of use
 
 ## Dataset
 
@@ -97,7 +97,10 @@ Generate Pandas Profile Report, distribution analysis using QQ plots and Shapiro
 11/11/22:
 I think I need to go back one step, and expand the data analysis more in line with the hypotheses, with more plots.
 
-17/11/22:
+20/11/22:
+Categorical variable relationships analyses, and relevant hypotheses validated. Parental education influences student participation in the test preparation course, and there is a parental education bias in the various ethnicities of the students. 
+
+Correlation study and predictive power score study conducted. For maths, only lunch_program has any significant correlation and predictive power. For reading, lunch_program shows strong predictive power, and lunch_program and test_preparation_course show significant correlation. For writing, lunch_program and test_preparation_course show strong predictive power and significant correlation. 
 
 
 
