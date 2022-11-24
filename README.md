@@ -111,3 +111,5 @@ https://stackoverflow.com/questions/34734940/row-wise-average-for-a-subset-of-co
 https://stackoverflow.com/questions/40088585/turn-off-error-bars-in-seaborn-bar-plot - add values to barplots and remove confidence intervals
 
 https://stackoverflow.com/questions/34615854/seaborn-countplot-with-normalized-y-axis-per-group - seaborn countplot with normalised y-axis counts
+
+https://www.hostinger.co.uk/tutorials/how-to-remove-files-and-folders-using-linux-command-line/#:~:text=To%20permanently%20remove%20a%20directory,use%20rm%20%2Dr%20%5Bdirname%5D - linux terminal commands
