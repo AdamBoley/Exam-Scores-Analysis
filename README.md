@@ -104,6 +104,13 @@ Correlation study and predictive power score study conducted. For maths, only lu
 
 
 
+2/12/22:
+
+Fit writing_score pipeline
+
+Question to myself - do I really need the StandardScaler step? No numerical feature variables to scale. Test pipelines bith with and without to if performance changes
+
+
 ## Credits
 
 https://stackoverflow.com/questions/34734940/row-wise-average-for-a-subset-of-columns-with-missing-values - for average row values
