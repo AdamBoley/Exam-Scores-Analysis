@@ -24,7 +24,7 @@ Before any data analysis takes place, a quick inspection of the data indicates t
 
 ## Hypotheses
 
-After discussions with the local government, I have formulated several hypotheses. These hypotheses will guide the data analysis.
+After discussions with the local government, I have formulated several hypotheses. These hypotheses will guide the data analysis:
 
 - I hypothesize that students who attend the test preparation course attain higher test scores
 
@@ -102,13 +102,19 @@ Categorical variable relationships analyses, and relevant hypotheses validated. 
 
 Correlation study and predictive power score study conducted. For maths, only lunch_program has any significant correlation and predictive power. For reading, lunch_program shows strong predictive power, and lunch_program and test_preparation_course show significant correlation. For writing, lunch_program and test_preparation_course show strong predictive power and significant correlation. 
 
+25/11/22:
+Fit math_score pipeline
 
+27/11/22:
+Fit reading_score pipeline
 
 2/12/22:
-
 Fit writing_score pipeline
 
 Question to myself - do I really need the StandardScaler step? No numerical feature variables to scale. Test pipelines bith with and without to if performance changes
+
+5/12/22:
+Round up performance of all machine learning pipelines.
 
 
 ## Credits
