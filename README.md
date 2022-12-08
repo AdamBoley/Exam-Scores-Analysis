@@ -132,3 +132,11 @@ https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attac
 https://towardsdatascience.com/multi-class-metrics-made-simple-part-i-precision-and-recall-9250280bddc2
 
 https://towardsdatascience.com/multi-class-metrics-made-simple-part-ii-the-f1-score-ebe8b2c2ca1
+
+https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D - for adding lines to custom legends
+
+https://towardsdatascience.com/how-to-use-your-own-color-palettes-with-seaborn-a45bf5175146 - custom colour palettes for seaborn plots
+
+https://stackoverflow.com/questions/19125722/adding-a-legend-to-pyplot-in-matplotlib-in-the-simplest-manner-possible
+and 
+https://stackoverflow.com/questions/39500265/how-to-manually-create-a-legend - for custom legends as well
