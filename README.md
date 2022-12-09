@@ -26,17 +26,21 @@ Before any data analysis takes place, a quick inspection of the data indicates t
 
 After discussions with the local government, I have formulated several hypotheses. These hypotheses will guide the data analysis:
 
+### Primary
+
 - I hypothesize that students who attend the test preparation course attain higher test scores
 
 - I hypothesize that a student's lunch program has an effect on their test scores
 
-- I hypothesize that increased levels of parental education negatively correlate to their children's participation in the free/reduced school lunch program. For this hypothesis, I have made the reasonable assumption that better educated parents earn higher wages, and that the free/reduced school lunch program is only available to poorer parents
-
 - I hypothesize that increased levels of parental education correlate with higher test scores. For this hypothesis, I have made the reasonable assumption that better educated parents have a greater focus on education
 
-- I hypothesize that increased levels of parental education correlate with increased participation in the test preparation program. As above, for this hypothesis, I have made the reasonable assumption that better educated parents have a greater focus on education
+- I hypothesize that increased levels of parental education negatively correlate to their children's participation in the free/reduced school lunch program. For this hypothesis, I have made the reasonable assumption that better educated parents earn higher wages, and that the free/reduced school lunch program is only available to poorer parents
 
 - I hypothesize that a student's gender has an effect on their individual and overall test scores. It is the opinion of my Mentor that girls tend to perform better in education than boys, and [this article](https://www.theguardian.com/education/2021/aug/10/a-level-results-top-5-data-takeaways) appears to support that opinion
+
+### Secondary
+
+- I hypothesize that increased levels of parental education correlate with increased participation in the test preparation program. As above, for this hypothesis, I have made the reasonable assumption that better educated parents have a greater focus on education
 
 - I hypothesize that a student's ethnicity has an effect on their test scores.
 
@@ -54,13 +58,14 @@ then a student's ethnicity has an effect on their participation in the test prep
 
 ## Dashboard pages
 
-This project will be deployed as a Streamlit dashboard. I plan on designing 5 pages:
+This project will be deployed as a Streamlit dashboard. I plan on designing 6 pages:
 
 - Page 1 - A project summary with explanations of each feature variable, any relevant jargon, and the findings of the data analysis
 - Page 2 - The project's hypotheses, absent any validation, since the hypotheses will guide the data analysis on Page 3
 - Page 3 - An in-depth analysis of the dataset, with various plots
 - Page 4 - The validation of the Project's hypotheses, based on any relevant findings identified in the data analysis page
-- Page 5 - A user interface that allows the user to use the Machine Learning model to make predictions of student scores
+- Page 5 - Information about the model
+- Page 6 - A user interface that allows the user to use the Machine Learning model to make predictions of student scores
 
 ## Mapping Business Requirements to the Data Visualisation and Machine Learning tasks
 
