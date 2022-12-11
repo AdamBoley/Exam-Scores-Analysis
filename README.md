@@ -145,3 +145,5 @@ https://towardsdatascience.com/how-to-use-your-own-color-palettes-with-seaborn-a
 https://stackoverflow.com/questions/19125722/adding-a-legend-to-pyplot-in-matplotlib-in-the-simplest-manner-possible
 and 
 https://stackoverflow.com/questions/39500265/how-to-manually-create-a-legend - for custom legends as well
+
+https://discuss.streamlit.io/t/how-to-indent-bullet-point-list-items/28594/2 - for Streamlit bullet points
