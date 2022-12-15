@@ -621,7 +621,9 @@ def data_analysis():
         " educated parents."
     )
 
-    st.write("#### Conclusions")
+    st.write("### Parallel Plots")
+
+    st.write("### Conclusions")
 
     st.info(
         "Overall, we can safely conclude that the categorical"
