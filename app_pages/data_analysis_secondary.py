@@ -1,5 +1,8 @@
 import streamlit as st
 from src.data_management import load_output_data, load_input_data
+from feature_engine.discretisation import ArbitraryDiscretiser
+import numpy as np
+import plotly.express as px
 
 
 def data_analysis_secondary():
@@ -215,7 +218,7 @@ def data_analysis_secondary():
     )
 
     st.info(
-        "Uf we examine the above plots, we can confirm that"
+        "If we examine the above plots, we can confirm that"
         "Both genders participate in the test"
         " preparation course at almost exactly same rate."
         " There is no discernable difference in column size."
@@ -223,25 +226,93 @@ def data_analysis_secondary():
 
     st.write("### Parallel Plots")
 
+    scores_map = [-np.Inf, 20, 40, 60, 80, 100, np.Inf]
+
+    discretiser = ArbitraryDiscretiser(binning_dict={
+        'math_score': scores_map,
+        'reading_score': scores_map,
+        'writing_score': scores_map
+        })
+    df_parallel = discretiser.fit_transform(df_output)
+
+    n_classes = len(scores_map) - 1
+    classes_ranges = discretiser.binner_dict_['math_score'][1:-1]
+
+    labels_map = {}
+    for n in range(0, n_classes):
+        if n == 0:
+            labels_map[n] = f"0 to {classes_ranges[0]}"
+        elif n == n_classes-1:
+            labels_map[n] = f"{classes_ranges[-1]}+"
+        else:
+            labels_map[n] = f"{classes_ranges[n-1] + 1} to {classes_ranges[n]}"
+
+    df_parallel['math_score'] = df_parallel['math_score'].replace(labels_map)
+    df_parallel['writing_score'] = df_parallel['writing_score'].replace(labels_map)
+    df_parallel['reading_score'] = df_parallel['reading_score'].replace(labels_map)
+
+    # math score parallel plot
+    df_parallel_maths = df_parallel.drop(['reading_score', 'writing_score'], axis=1)
+
+    fig_parallel_maths = px.parallel_categories(df_parallel_maths, width=900, height=600)
+
+    st.plotly_chart(fig_parallel_maths)
+
+    # reading score parallel plot
+    df_parallel_reading = df_parallel.drop(['math_score', 'writing_score'], axis=1)
+
+    fig_parallel_reading = px.parallel_categories(df_parallel_reading, width=900, height=600)
+
+    st.plotly_chart(fig_parallel_reading)
+
+    # writing score parallel plot
+    df_parallel_writing = df_parallel.drop(['math_score', 'reading_score'], axis=1)
+
+    fig_parallel_writing = px.parallel_categories(df_parallel_writing, width=900, height=600)
+
+    st.plotly_chart(fig_parallel_writing)
+
     st.info(
         "Parallel plots reveal the mostly-independent nature"
         " of the categorical variables."
+        " We cannot visually determine any patterns."
+        " The categorical relationship plots show some"
+        " small differences, but these are small enough that"
+        " we should not expect to see them in the parallel plots."
     )
 
     st.write("### Conclusions")
 
     st.info(
         "Overall, we can safely conclude that the categorical"
-        " feature variables are mostly independent, and that"
-        " they do not influence or affect each other."
-        " The exceptions are those relationships identified above."
-        " Increased parental education leads to increased participation"
-        " in the test preparation course. In addition, student ethnicity"
+        " feature variables are mostly independent, and that,"
+        " while they do influence each other, this influence is slight"
+        " in most cases, and is hence unnoticable in the parallel plots."
+        f"\n"
+        "A student's parental education is linked to their"
+        " lunch program - better educated parents see their children"
+        " participate in the standard lunch program at slightly higher rates"
+        f"\n"
+        "Increased parental education leads to increased participation"
+        " in the test preparation course. This is the only case where the"
+        " influence is not slight."
+        f"\n"
+        "Student ethnicity"
         " is connected to parental education. I am being careful with"
         " my words here, so I will simply say that it appears that"
         " students of certain ethnicities tend to have better"
         " educated parents, and students of other ethnicities tend"
         " to have less well educated parents."
+        " This influence is nonetheless slight."
+        f"\n"
+        "A student's ethnicity slightly influences which lunch program"
+        " they participate in."
+        f"\n"
+        "A student's ethnicity slightly influences their participation"
+        " in the test preparation course."
+        f"\n"
+        "A student's gender has no real influence on their participation"
+        " in the test preparation course."
     )
 
     st.success(
