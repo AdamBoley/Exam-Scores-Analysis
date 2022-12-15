@@ -147,3 +147,5 @@ and
 https://stackoverflow.com/questions/39500265/how-to-manually-create-a-legend - for custom legends as well
 
 https://discuss.streamlit.io/t/how-to-indent-bullet-point-list-items/28594/2 - for Streamlit bullet points
+
+https://stackoverflow.com/questions/54735877/seaborn-countplot-series-doesnt-recognize-input - construct barplots from series
