@@ -317,7 +317,7 @@ def data_analysis_secondary():
 
     st.success(
         "On the next page, I will sum up the relationships"
-        " identified here, and validate the hypotheses outlined on the "
+        " identified here, and validate the hypotheses outlined on the"
         " previous page, stating whether I have hypothesized correctly or"
         " incorrectly."
     )
