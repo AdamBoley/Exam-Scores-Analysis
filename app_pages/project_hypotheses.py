@@ -3,7 +3,7 @@ import streamlit as st
 
 def project_hypotheses():
 
-    st.write("### Project Hypotheses")
+    st.write("## Project Hypotheses")
 
     st.info(
         f"After examining the dataset provided, I was able to formulate some"
@@ -17,7 +17,7 @@ def project_hypotheses():
     )
 
     st.info(
-        f"#### Primary hypotheses\n"
+        f"### Primary hypotheses\n"
         f"The primary hypotheses are below"
         f"I hypothesize that:\n"
         f"\n"
@@ -38,7 +38,7 @@ def project_hypotheses():
     )
 
     st.info(
-        f"#### Secondary hypotheses\n"
+        f"### Secondary hypotheses\n"
         f"The secondary hypotheses are below. These suppose some link"
         f" between the categorical variables. They are below\n"
         f"I hypothesize that:\n"
@@ -61,8 +61,8 @@ def project_hypotheses():
         "10 - that a student's ethnicity has an effect on their participation"
         " in the test preparation course, or more simply that certain"
         " ethnicities participate in the test preparation course at higher"
-        " rates than other ethnicities."
+        f" rates than other ethnicities.\n"
         f"\n"
         f"11 - that a student's gender has an effect on their participation"
-        f"  in the test preparation course\n"
+        f" in the test preparation course\n"
     )
