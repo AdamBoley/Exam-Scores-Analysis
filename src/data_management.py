@@ -18,5 +18,12 @@ def load_output_data():
     return df_output
 
 
+@st.cache(suppress_st_warning=True, allow_output_mutation=True)
+def load_shapiro_wilk_data():
+    path = 'outputs/datasets/distribution/original-shapiro-wilk-test-results.csv'
+    df_shapiro_wilk = pd.read_csv(path)
+    return df_shapiro_wilk
+
+
 def load_pkl_file(file_path):
     return joblib.load(filename=file_path)
