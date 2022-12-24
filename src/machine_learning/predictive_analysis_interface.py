@@ -17,13 +17,13 @@ def predict_maths(live_vars, math_features, math_pipeline, math_label_map):
     if math_prediction != 1:
         statement = (
             f"There is a {probability.round(2)}% probability that the"
-            f" student will score {math_classes} points in their math exam"
+            f" student will score **{math_classes}** in their math exam."
         )
 
     else:
         statement = (
-            f"The model predicts that the student will score {math_classes}"
-            f" points in their math exam."
+            f"The model predicts that the student will score "
+            f" **{math_classes}** in their math exam."
         )
 
     st.write(statement)
@@ -45,14 +45,14 @@ def predict_reading(live_vars, reading_features, reading_pipeline, reading_label
     if reading_prediction != 1:
         statement = (
             f"There is a {probability.round(2)}% probability that the"
-            f" student will score {reading_classes} points in their"
+            f" student will score **{reading_classes}** in their"
             " reading exam"
         )
 
     else:
         statement = (
-            f"The model predicts that the student will score {reading_classes}"
-            f" points in their reading exam."
+            f"The model predicts that the student will score "
+            f" **{reading_classes}** in their reading exam."
         )
 
     st.write(statement)
@@ -74,14 +74,14 @@ def predict_writing(live_vars, writing_features, writing_pipeline, writing_label
     if writing_prediction != 1:
         statement = (
             f"There is a {probability.round(2)}% probability that the"
-            f" student will score {writing_classes} points in their"
+            f" student will score **{writing_classes}** in their"
             " writing exam"
         )
 
     else:
         statement = (
-            f"The model predicts that the student will score {writing_classes}"
-            f" points in their writing exam."
+            f"The model predicts that the student will score"
+            f" **{writing_classes}** in their writing exam."
         )
 
     st.write(statement)
