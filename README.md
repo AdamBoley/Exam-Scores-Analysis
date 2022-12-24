@@ -149,3 +149,7 @@ https://stackoverflow.com/questions/39500265/how-to-manually-create-a-legend - f
 https://discuss.streamlit.io/t/how-to-indent-bullet-point-list-items/28594/2 - for Streamlit bullet points
 
 https://stackoverflow.com/questions/54735877/seaborn-countplot-series-doesnt-recognize-input - construct barplots from series
+
+
+Performance:
+`Warning: Your slug size (418 MB) exceeds our soft limit (300 MB) which may affect boot time.`
