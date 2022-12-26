@@ -47,7 +47,7 @@ def project_hypotheses():
         f" with increased participation in the test preparation program\n"
         f"\n"
         f"7 - that increased levels of parental education correlate with"
-        " increased participation in the standard lunch program"
+        f" increased participation in the standard lunch program\n"
         f"\n"
         f"8 - that a student's ethnicity is linked to"
         f" their parent's educational level. In simpler terms, this"

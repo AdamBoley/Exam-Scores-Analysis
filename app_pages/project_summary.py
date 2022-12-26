@@ -43,7 +43,7 @@ def project_summary():
     )
 
     st.info(
-        f"### Dataset Information"
+        f"### Dataset Information\n"
         f"The dataset has 5 feature variables.\n"
         f" These are non-numerical categorical variables.\n"
         f" They are:\n"

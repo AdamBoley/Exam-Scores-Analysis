@@ -100,7 +100,7 @@ def hypothesis_validation():
         " correlate with increased participation in the test"
         f" preparation course\n"
         f"\n"
-        "Partial success - we can validate this hypothesis as true,"
+        "Partial success - we can validate this hypothesis as true"
         " but slight. The influence is not strong, but is noticeable"
         " by the differences in the plots."
     )
@@ -128,7 +128,7 @@ def hypothesis_validation():
         " simply that certain ethnicities participate in the different"
         f" lunch programs at different rates\n"
         f"\n"
-        "Partial success - we can validate this hypothesis as true,"
+        "Partial success - we can validate this hypothesis as true"
         " but slight."
     )
 
@@ -139,7 +139,7 @@ def hypothesis_validation():
         " certain ethnicities participate in the test preparation"
         f" course at a higher rate than other ethnicities\n"
         f"\n"
-        "Partial success - we can validate this hypothesis as true,"
+        "Partial success - we can validate this hypothesis as true"
         " but slight."
     )
 
