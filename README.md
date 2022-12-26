@@ -296,6 +296,10 @@ Once the parallel plots had been constructed, I decided that there was nothing m
 
 Prior to this, I decided to undertake some feature engineering work. Primarily, this involved the use of the `SmartCorrelatedSelection()` method to determine if any feature variables were correlated enough that they needed to be dropped prior to fitting a model. In a way, this served as a further reinforcement of the conclusion that the categorical feature variables were independent.
 
+Before I conducted the Smart Correlated Selection, I first created created 3 dataframes from the original, one for each of the numerical variables. I then split each of these into train and test sets.
+
+Once that was done, I used the OrdinalEncoder to encode the categorical variables as integers. I then used the `SmartCorrelatedSelection()` method to determine if there were any features to drop. Fortunately, and in line with our previous analyses, none of the categorical variables needed to be dropped. I therefore concluded that any machine learning pipelines developed in this project would not need a SmartCorrelatedSelection step.
+
 ### Math score regression
 
 ### Math score classification
