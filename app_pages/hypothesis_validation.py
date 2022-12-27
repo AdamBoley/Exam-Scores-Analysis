@@ -86,7 +86,7 @@ def hypothesis_validation():
     st.info(
         "As a note to the reader, several of the secondary hypotheses"
         " were shown to have noticeble but small differences. I refer to"
-        " these influences as 'True but slight', meaning that a"
+        " these influences as *True but slight*, meaning that a"
         " relationship was identified, but that it is small enough"
         " that no real conclusions can be drawn from it, and hence that"
         " it would be irresponsible to base educational policy"
@@ -96,44 +96,63 @@ def hypothesis_validation():
 
     st.warning(
         f"#### Hypothesis 6\n"
+        f"\n"
         f"Increased levels of student parental education"
         " correlate with increased participation in the test"
         f" preparation course\n"
         f"\n"
         "Partial success - we can validate this hypothesis as true"
-        " but slight. The influence is not strong, but is noticeable"
+        " but slight."
+        "Students of better educated parents participate in the test"
+        " preparation course at slightly higher levels."
+        " The influence is not strong, but is noticeable"
         " by the differences in the plots."
     )
 
     st.warning(
         f"#### Hypothesis 7\n"
+        f"\n"
         f"Increased levels of student parental education correlate"
         f" with increased participation in the standard lunch program\n"
         f"\n"
         " Partial success - we can validate this hypothesis as true,"
-        " but slight. The influence is not strong, but is notable."
+        " but slight."
+        "Students of better educated parents participate in the standard"
+        " lunch program at a slightly higher rate."
+        " The influence is not strong, but is notable."
     )
 
     st.success(
         f"#### Hypothesis 8\n"
+        f"\n"
         "Parental education is linked to ethnicity, or more simply"
         f" that some ethnicities are better educated than others\n"
         f"\n"
-        "Success - we can validate this hypothesis as true"
+        "Success - we can validate this hypothesis as true."
+        " Students of ethnicity groups A and B have parents who are"
+        " noticably better educated, whereas students of ethnicity"
+        " groups D and E are noticably less well educated."
     )
 
     st.warning(
         f"#### Hypothesis 9\n"
+        f"\n"
         "Student ethnicity is linked to their lunch program, or more"
         " simply that certain ethnicities participate in the different"
         f" lunch programs at different rates\n"
         f"\n"
         "Partial success - we can validate this hypothesis as true"
         " but slight."
+        "Students of ethnicity D participate in the standard lunch program"
+        " at a higher rate, whereas students of ethnicity E participate in"
+        " the free/reduced lunch program at a higher rate. Ethnicity"
+        " groups A, B and C have no real difference in lunch"
+        " program participation rates."
     )
 
     st.warning(
         f"#### Hypothesis 10\n"
+        f"\n"
         "Student ethnicity is linked to their participation"
         " in the test preparation course, or more simply that"
         " certain ethnicities participate in the test preparation"
@@ -141,10 +160,14 @@ def hypothesis_validation():
         f"\n"
         "Partial success - we can validate this hypothesis as true"
         " but slight."
+        "Ethnicity group C completes the test preparation course"
+        " at a slightly lower rate, whereas ethnicity group A"
+        " completes the test preparation course at a slightly higher rate."
     )
 
     st.error(
         f"#### Hypothesis 11\n"
+        f"\n"
         "A student's gender affects their participation in the test"
         " preparation course, or more simply that one gender participates"
         f" in the test preparation course at a higher rate than the other\n"

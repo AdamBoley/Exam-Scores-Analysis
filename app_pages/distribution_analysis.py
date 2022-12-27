@@ -4,7 +4,7 @@ from src.data_management import load_output_data, load_input_data, load_shapiro_
 
 def distribution_analysis():
 
-    st.write("## Data Analysis")
+    st.write("## Data Distribution Analysis")
 
     st.write("### Datasets")
 
@@ -14,17 +14,17 @@ def distribution_analysis():
 
     st.info(
         f"Before the plots on this page can be properly interpreted,"
-        f" they must see the actual dataset that was used to construct them.\n"
+        f" users must see the actual dataset that was used to construct them."
         f"\n"
         f"Below are 2 datasets - the input dataset I was provided with by"
         f" the local government, and a modified version I used for all"
-        f" data analyses and subsequent work\n"
+        f" data analyses and subsequent work.\n"
         f"\n"
         f"The modified dataset changes the format of the column headers"
         f" which makes data manipulation easier, and also adds a column"
         f" called **average_score**, which averages the 3 preceeding score"
         f" columns to provide an overall indication of a students'"
-        f" performance\n"
+        f" performance.\n"
         )
 
     st.write("#### Input dataset")
@@ -58,7 +58,7 @@ def distribution_analysis():
         "These 4 plots are histograms, which show counts of various"
         f" groupings of score, called bins. Histograms are generally used to"
         f" examine distribution. When looking for normally distribution, we"
-        f" are looking for the KDE line to be in a bell shape"
+        f" are looking for the KDE line to be in a bell shape."
     )
 
     st.write("**Math Score Distribution**")

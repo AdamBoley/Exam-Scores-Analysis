@@ -6,13 +6,14 @@ def project_hypotheses():
     st.write("## Project Hypotheses")
 
     st.info(
-        f"After examining the dataset provided, I was able to formulate some"
-        f" hypotheses. I have split these into 2 class, which I call\n"
-        f" primary and secondary. The primary hypotheses are those that"
-        f" suppose some relationship between each of the 5 categorical feature"
-        f" variables and the students' test scores. The secondary hypotheses"
-        f" are those that suppose that relationships exist between the"
-        f" categorical variables\n"
+        "After examining the dataset provided, I was able to formulate some"
+        " hypotheses. I have split these into 2 classes, which I call"
+        " **primary** and **secondary**."
+        " The primary hypotheses are those that"
+        " suppose some relationship between each of the 5 categorical feature"
+        " variables and the students' test scores. The secondary hypotheses"
+        " are those that suppose that relationships exist between the"
+        f" categorical variables.\n"
         f"\n"
     )
 
@@ -25,9 +26,6 @@ def project_hypotheses():
         f" high exam scores\n"
         f"\n"
         f"2 - A students' lunch program affects their exam scores\n"
-        f"\n"
-        f"Note that I am not making a judgement here, just offering a neutral"
-        f" observation - that there is some effect\n"
         f"\n"
         f"3 - Students of better educated parents achieve higher test scores\n"
         f"\n"

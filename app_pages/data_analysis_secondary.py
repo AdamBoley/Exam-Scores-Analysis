@@ -7,22 +7,19 @@ import plotly.express as px
 
 def data_analysis_secondary():
 
-    st.write("## Data Analysis")
-
-    st.write("### Datasets")
-
-    df_input = load_input_data()
-    df_output = load_output_data()
+    st.write("## Secondary Data Analysis")
 
     st.info(
         "On this page I will present the plots that I will use"
         " to validate the primary hypotheses."
         f"\n"
         "Before I do so, I will recap the modified dataset, as this was the"
-        " dataset used to formulate these plots"
+        " dataset used to formulate these plots."
         )
 
-    st.write("#### Modfied dataset")
+    df_output = load_output_data()
+
+    st.write("### Modfied dataset")
 
     st.write(df_output)
 
@@ -46,7 +43,9 @@ def data_analysis_secondary():
         " hence insights gleaned."
         )
 
-    st.write("#### Hypothesis 6 - Parental Education - Test Preparation Course Plots")
+    st.write(
+        "#### Hypothesis 6 - Parental Education - Test Preparation Course"
+        )
 
     st.info(
         "Below are the plots that reveal that there is a relationship"
@@ -68,8 +67,8 @@ def data_analysis_secondary():
         "If we examine the plots above, we see that students of less"
         " educated parents participate in the test"
         " preparation course at a noticeably lower rate."
-        " This is noted by the differences in the high school"
-        " some college, and associates degree columns."
+        " This is noted by the differences in the *high school*,"
+        " *some college*, and *associates degree* columns."
     )
 
     st.write("#### Hypothesis 7 - Parental Education - Lunch Program")
@@ -90,7 +89,7 @@ def data_analysis_secondary():
 
     st.info(
         "If we examine the above plots we can see differences in the"
-        " 'some college' and 'bachelors degree' columns."
+        " *some college* and *bachelors degree* columns."
         " We see that students whose parents have some college"
         " education participate in the free/reduced lunch program"
         " at a higher rate, and also that students whose parents have"
@@ -100,7 +99,9 @@ def data_analysis_secondary():
         " be noted and remarked on"
     )
 
-    st.write("#### Hypothesis 8 - Student Ethnicity - Parental Education Plots")
+    st.write(
+        "#### Hypothesis 8 - Student Ethnicity - Parental Education"
+        )
 
     st.info(
         "Below are the plots that reveal that there is a relationship"
@@ -133,18 +134,18 @@ def data_analysis_secondary():
         "If we examine the above plots, we can draw several"
         f" conclusions."
         " Students of ethnicity A have significantly better educated parents."
-        " This is evidenced by the smaller 'some high school'"
-        " and `associates degree`"
-        " columns, and the larger `some college` and "
-        f" `bachelor's degree` columns.\n"
+        " This is evidenced by the smaller *some high school*"
+        " and *associates degree*"
+        " columns, and the larger *some college* and "
+        f" *bachelor's degree* columns.\n"
         f"\n"
         "Students of ethnicity B have parents who are almost as well"
         " educated as those of ethnicity A. This is evidenced by"
-        f" the larger `masters degree` column.\n"
+        f" the larger *masters degree* column.\n"
         f"\n"
         "Students of ethnicities D and E have parents who are less well"
-        " educated. This is evidenced by the larger `some high school`"
-        " and `high school` columns, and the smaller `masters degree`"
+        " educated. This is evidenced by the larger *some high school*"
+        " and *high school* columns, and the smaller *masters degree*"
         f" columns.\n"
         f"\n"
         " In general, we are looking at the relative sizes of the columns."
@@ -196,8 +197,8 @@ def data_analysis_secondary():
 
     st.info(
         "If we examine the above plots, we can differences in the columns."
-        " We can see that group C completes the test preparation"
-        " at a slightly lower rate, and that group A does complete the test"
+        " We can see that *group C* completes the test preparation"
+        " at a slightly lower rate, and that *group A* does complete the test"
         " preparation course at a slightly higher rate."
     )
 

@@ -17,25 +17,48 @@ def predict_exam_scores():
     )
 
     # load files
-    math_pipeline = load_pkl_file("outputs/ml_pipeline/predict_maths/v1/pipeline-clf-math.pkl")
-    reading_pipeline = load_pkl_file("outputs/ml_pipeline/predict_reading/v1/pipeline-clf-reading.pkl")
-    writing_pipeline = load_pkl_file("outputs/ml_pipeline/predict_writing/v1/pipeline-clf-writing.pkl")
+    math_pipeline = load_pkl_file(
+        "outputs/ml_pipeline/predict_maths/v1/pipeline-clf-math.pkl")
 
-    math_label_map = load_pkl_file("outputs/ml_pipeline/predict_maths/v1/label-map-math.pkl")
-    reading_label_map = load_pkl_file("outputs/ml_pipeline/predict_reading/v1/label-map-reading.pkl")
-    writing_label_map = load_pkl_file("outputs/ml_pipeline/predict_writing/v1/label-map-writing.pkl")
+    reading_pipeline = load_pkl_file(
+        "outputs/ml_pipeline/predict_reading/v1/pipeline-clf-reading.pkl")
 
-    math_features = pd.read_csv("outputs/ml_pipeline/predict_maths/v1/math-train-vars.csv").columns.to_list()
-    reading_features = pd.read_csv("outputs/ml_pipeline/predict_reading/v1/reading-train-vars.csv").columns.to_list()
-    writing_features = pd.read_csv("outputs/ml_pipeline/predict_writing/v1/writing-train-vars.csv").columns.to_list()
+    writing_pipeline = load_pkl_file(
+        "outputs/ml_pipeline/predict_writing/v1/pipeline-clf-writing.pkl")
+
+    math_label_map = load_pkl_file(
+        "outputs/ml_pipeline/predict_maths/v1/label-map-math.pkl")
+
+    reading_label_map = load_pkl_file(
+        "outputs/ml_pipeline/predict_reading/v1/label-map-reading.pkl")
+
+    writing_label_map = load_pkl_file(
+        "outputs/ml_pipeline/predict_writing/v1/label-map-writing.pkl")
+
+    math_features = pd.read_csv(
+        "outputs/ml_pipeline/predict_maths/v1/math-train-vars.csv"
+        ).columns.to_list()
+
+    reading_features = pd.read_csv(
+        "outputs/ml_pipeline/predict_reading/v1/reading-train-vars.csv"
+        ).columns.to_list()
+
+    writing_features = pd.read_csv(
+        "outputs/ml_pipeline/predict_writing/v1/writing-train-vars.csv"
+        ).columns.to_list()
 
     # Acquire live data
     live_vars = AcquireInputs()
 
     if st.button("Make Predictions"):
-        predict_maths(live_vars, math_features, math_pipeline, math_label_map)
-        predict_reading(live_vars, reading_features, reading_pipeline, reading_label_map)
-        predict_writing(live_vars, writing_features, writing_pipeline, writing_label_map)
+        predict_maths(
+            live_vars, math_features, math_pipeline, math_label_map)
+
+        predict_reading(
+            live_vars, reading_features, reading_pipeline, reading_label_map)
+
+        predict_writing(
+            live_vars, writing_features, writing_pipeline, writing_label_map)
 
 
 def AcquireInputs():

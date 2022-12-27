@@ -4,12 +4,7 @@ from src.data_management import load_output_data, load_input_data
 
 def data_analysis_primary():
 
-    st.write("## Data Analysis")
-
-    st.write("### Datasets")
-
-    df_input = load_input_data()
-    df_output = load_output_data()
+    st.write("## Primary Data Analysis")
 
     st.info(
         "On this page I will present the plots that I will use"
@@ -19,7 +14,9 @@ def data_analysis_primary():
         " dataset used to formulate these plots"
         )
 
-    st.write("#### Modfied dataset")
+    df_output = load_output_data()
+
+    st.write("### Modfied dataset")
 
     st.write(df_output)
 

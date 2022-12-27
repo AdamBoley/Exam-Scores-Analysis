@@ -442,7 +442,32 @@ I hypothesized that a student's ethnicity has an effect on their participation i
 
 I hypothesizes that a student's gender has an effect on their participation in the test preparation course. This is false. Both genders participate in the test preparation course at almost exactly the same rate.
 
+## Deployment
+
+The project is deployed here:
+https://student-exam-scores-analysis.herokuapp.com/
+
 ## Screenshots of Dashboard
+
+Below are screenshots of the Deployed Streamlit Dashboard
+
+### Sidebar
+
+### Project Summary
+
+### Project Hypotheses
+
+### Distribution Analysis
+
+### Data Analysis Primary
+
+### Data Analysis Secondary
+
+### Hypothesis Validation
+
+### Model Information
+
+### Predict Exam Scores
 
 ## Credits
 
@@ -471,6 +496,8 @@ https://stackoverflow.com/questions/39500265/how-to-manually-create-a-legend - f
 https://discuss.streamlit.io/t/how-to-indent-bullet-point-list-items/28594/2 - for Streamlit bullet points
 
 https://stackoverflow.com/questions/54735877/seaborn-countplot-series-doesnt-recognize-input - construct barplots from series
+
+https://twemoji.maxcdn.com/2/test/preview.html - used to find an emoji favicon for multipage
 
 
 Performance:

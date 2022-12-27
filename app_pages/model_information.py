@@ -78,12 +78,23 @@ def model_information():
         f"\n"
     )
 
-    math_score_pipeline = load_pkl_file("outputs/ml_pipeline/predict_maths/v1/pipeline-clf-math.pkl")
-    math_train_vars = pd.read_csv("outputs/ml_pipeline/predict_maths/v1/math-train-vars.csv")
-    math_train_score = pd.read_csv("outputs/ml_pipeline/predict_maths/v1/math-train-score.csv")
-    math_test_vars = pd.read_csv("outputs/ml_pipeline/predict_maths/v1/math-test-vars.csv")
-    math_test_score = pd.read_csv("outputs/ml_pipeline/predict_maths/v1/math-test-score.csv")
-    math_feature_importance = plt.imread("outputs/ml_pipeline/predict_maths/v1/feature-importance-plot-maths.png")
+    math_score_pipeline = load_pkl_file(
+        "outputs/ml_pipeline/predict_maths/v1/pipeline-clf-math.pkl")
+
+    math_train_vars = pd.read_csv(
+        "outputs/ml_pipeline/predict_maths/v1/math-train-vars.csv")
+
+    math_train_score = pd.read_csv(
+        "outputs/ml_pipeline/predict_maths/v1/math-train-score.csv")
+
+    math_test_vars = pd.read_csv(
+        "outputs/ml_pipeline/predict_maths/v1/math-test-vars.csv")
+
+    math_test_score = pd.read_csv(
+        "outputs/ml_pipeline/predict_maths/v1/math-test-score.csv")
+
+    math_feature_importance = plt.imread(
+        "outputs/ml_pipeline/predict_maths/v1/feature-importance-plot-maths.png")
 
     st.write("#### Pipeline")
 
@@ -131,7 +142,7 @@ def model_information():
         x_test=math_test_vars,
         y_test=math_test_score,
         pipeline=math_score_pipeline,
-        label_map=["Failing", "Passing"])
+        label_map=["below average", "better than average"])
 
     st.info(
         "As we can see, the train set has a good recall score of 0.68"
@@ -158,12 +169,23 @@ def model_information():
         " far better performance, as we will see below."
     )
 
-    reading_score_pipeline = load_pkl_file("outputs/ml_pipeline/predict_reading/v1/pipeline-clf-reading.pkl")
-    reading_train_vars = pd.read_csv("outputs/ml_pipeline/predict_reading/v1/reading-train-vars.csv")
-    reading_train_score = pd.read_csv("outputs/ml_pipeline/predict_reading/v1/reading-train-score.csv")
-    reading_test_vars = pd.read_csv("outputs/ml_pipeline/predict_reading/v1/reading-test-vars.csv")
-    reading_test_score = pd.read_csv("outputs/ml_pipeline/predict_reading/v1/reading-test-score.csv")
-    reading_feature_importance = plt.imread("outputs/ml_pipeline/predict_reading/v1/feature-importance-plot-reading.png")
+    reading_score_pipeline = load_pkl_file(
+        "outputs/ml_pipeline/predict_reading/v1/pipeline-clf-reading.pkl")
+
+    reading_train_vars = pd.read_csv(
+        "outputs/ml_pipeline/predict_reading/v1/reading-train-vars.csv")
+
+    reading_train_score = pd.read_csv(
+        "outputs/ml_pipeline/predict_reading/v1/reading-train-score.csv")
+
+    reading_test_vars = pd.read_csv(
+        "outputs/ml_pipeline/predict_reading/v1/reading-test-vars.csv")
+
+    reading_test_score = pd.read_csv(
+        "outputs/ml_pipeline/predict_reading/v1/reading-test-score.csv")
+
+    reading_feature_importance = plt.imread(
+        "outputs/ml_pipeline/predict_reading/v1/feature-importance-plot-reading.png")
 
     st.write("#### Pipeline")
 
@@ -210,7 +232,7 @@ def model_information():
         x_test=reading_test_vars,
         y_test=reading_test_score,
         pipeline=reading_score_pipeline,
-        label_map=["Failing", "Passing"])
+        label_map=["below average", "average or above"])
 
     st.info(
         "As we can see, the reading_score model has fantastic recall"
@@ -232,12 +254,23 @@ def model_information():
         " which proved to have far better performance, as we shall see below."
     )
 
-    writing_score_pipeline = load_pkl_file("outputs/ml_pipeline/predict_writing/v1/pipeline-clf-writing.pkl")
-    writing_train_vars = pd.read_csv("outputs/ml_pipeline/predict_writing/v1/writing-train-vars.csv")
-    writing_train_score = pd.read_csv("outputs/ml_pipeline/predict_writing/v1/writing-train-score.csv")
-    writing_test_vars = pd.read_csv("outputs/ml_pipeline/predict_writing/v1/writing-test-vars.csv")
-    writing_test_score = pd.read_csv("outputs/ml_pipeline/predict_writing/v1/writing-test-score.csv")
-    writing_feature_importance = plt.imread("outputs/ml_pipeline/predict_writing/v1/feature-importance-plot-writing.png")
+    writing_score_pipeline = load_pkl_file(
+        "outputs/ml_pipeline/predict_writing/v1/pipeline-clf-writing.pkl")
+
+    writing_train_vars = pd.read_csv(
+        "outputs/ml_pipeline/predict_writing/v1/writing-train-vars.csv")
+
+    writing_train_score = pd.read_csv(
+        "outputs/ml_pipeline/predict_writing/v1/writing-train-score.csv")
+
+    writing_test_vars = pd.read_csv(
+        "outputs/ml_pipeline/predict_writing/v1/writing-test-vars.csv")
+
+    writing_test_score = pd.read_csv(
+        "outputs/ml_pipeline/predict_writing/v1/writing-test-score.csv")
+
+    writing_feature_importance = plt.imread(
+        "outputs/ml_pipeline/predict_writing/v1/feature-importance-plot-writing.png")
 
     st.write("#### Pipeline")
 
@@ -284,7 +317,7 @@ def model_information():
         x_test=writing_test_vars,
         y_test=writing_test_score,
         pipeline=writing_score_pipeline,
-        label_map=["Failing", "Passing"])
+        label_map=["average or below", "better than average"])
 
     st.info(
         "As we can see, the reading_score model has fantastic recall"
