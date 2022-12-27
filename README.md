@@ -130,7 +130,9 @@ Round up performance of all machine learning pipelines
 
 ## Notebook discussions
 
-In this section I will discuss the various notebooks created and populated in the course of the project. The notebooks themselves have appropriate commentary, but they are long and hence the commentary is spread out. All of the notebooks were initially constructed from a single template that contains the code cells to set the working directory, and the markdown cells to outline the purpose of the notebook. Each notebook is independent, and does not rely on any other notebook, though if you have forked this project or used it as a template, them you must run the first notebook before any others, so that you can download the data from Kaggle.
+In this section I will discuss the various notebooks created and populated in the course of the project. The notebooks themselves have appropriate commentary, but they are long and hence the commentary is spread out. Discussing the notebooks here also allows me to lay down my thinking behind each notebook.
+
+All of the notebooks were initially constructed from a single template that contains the code cells to set the working directory, and the markdown cells to outline the purpose of the notebook. Each notebook is independent, and does not rely on any other notebook, though if you have forked this project or used it as a template, them you must run the first notebook before any others, so that you can download the data from Kaggle.
 
 ### Data Collection Notebook
 
@@ -386,10 +388,59 @@ The similarity between the recall scores of both 2-bin approaches gave me pause,
 
 ### Conclusions
 
-Notebook `09-conclusions.ipynb` rounds up all of my observations during the model training process. I decided the transpose the confusion matrices and classification reports from all three classification model notebooks into markdown table format
-
+Notebook `09-conclusions.ipynb` rounds up all of my observations during the model training process. I decided the transpose the confusion matrices and classification reports from all three classification model notebooks into markdown table format. I then discussed my observations.
 
 ## Hypothesis validation
+
+Each of the project's hypotheses are validated in the sections of notebooks `03-data-analysis-2` and `04-data-analysis-3` that examine them. The hypotheses are also validated in the Hypothesis Validation page of the [Streamlit dashboard](https://student-exam-scores-analysis.herokuapp.com/). However, since the hypotheses are laid down in the Readme, it is useful to validate them here as well.
+
+### Primary Hypotheses Validation
+
+#### Hypothesis 1
+
+I hypothesized that students who attend the test preparation course attain high test scores. This is true. The difference in performance improvement varies by subject, between 5 and 10 points, with the average improvement being 7.5 points.
+
+#### Hypothesis 2
+
+I hypothesized that the lunch program that a student participates in has an effect on their test scores. This is true. The difference in performance improvement varies by subject. Reading and writing see an improvement of 9 points, whereas maths sees an improvement of 12 points.
+
+#### Hypothesis 3
+
+I hypothesized that students with increased levels of parental education score better. This is true. Students of better educated perform better, with performance increasing as parental education levels increase. There is also a noticable increase in performance between students whose parents have only some high school education and students who have completed a high school education.
+
+#### Hypothesis 4
+
+I hypothesized that a students' gender has an effect on their test scores. This is true. Female students perform better than male students in reading by 5 points and in writing by 7.5 points. Male students perform better than female students in maths by 6.5 points. 
+
+#### Hypothesis 5
+
+I hypothesized that a student's ethnicity has an effect on their test scores. This is true. Ethnicity groups D and E perform the best in all subjects, whereas ethnicity groups B and C perform the worst in all subjects.
+
+### Secondary Hypotheses Validation
+
+#### Hypothesis 6
+
+I hypothesized that increased levels of parental education correlate with increased participation in the test preparation course. This is slightly true. Students of better educated parents participate in the test preparation course at slightly higher levels.
+
+#### Hypothesis 7
+
+I hypothesized that increased levels of parental education correlate with increased participation in the standard lunch program. This is slightly true. Students of better educated parents participate in the standard lunch program at a slightly higher rate.
+
+#### Hypothesis 8
+
+I hypothesized that a student's ethnicity has an effect on their parent's educational level, or put more simply, that students of certain ethnicities have parents who are better educated. This is true, and not just slightly true. Students of ethnicity groups A and B have parents who are noticably better educated, whereas students of ethnicity groups D and E are noticably less well educated.
+
+#### Hypothesis 9
+
+I hypothesize that a student's ethnicity has an effect on their school lunch program, or put more simply that certain ethnicities participate in the different programs at different rates. This is slightly true. Students of ethnicity D participate in the standard lunch program at a higher rate, whereas students of ethnicity E participate in the free/reduced lunch program at a higher rate. Ethnicity groups A, B and C have no real difference in lunch program participation rates.
+
+#### Hypothesis 10
+
+I hypothesized that a student's ethnicity has an effect on their participation in the test preparation course. This is slightly true. Ethnicity group C completes the test preparation course at a slightly lower rate, whereas ethnicity group A completes the test preparation course at a slightly higher rate.
+
+#### Hypothesis 11
+
+I hypothesizes that a student's gender has an effect on their participation in the test preparation course. This is false. Both genders participate in the test preparation course at almost exactly the same rate.
 
 ## Screenshots of Dashboard
 

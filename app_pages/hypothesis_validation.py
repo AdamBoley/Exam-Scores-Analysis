@@ -149,7 +149,7 @@ def hypothesis_validation():
         " preparation course, or more simply that one gender participates"
         f" in the test preparation course at a higher rate than the other\n"
         f"\n"
-        " Success, but we have hypothesised incorrectly. There is no"
+        " Failure - we have hypothesised incorrectly. There is no"
         " discernable link between a student's gender and their participation"
         " in the test preparation course."
     )
