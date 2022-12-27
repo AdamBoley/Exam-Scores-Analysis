@@ -1,6 +1,6 @@
 # Exam Scores Analysis
 
-Am I responsive image here
+![Am I responsive image](screenshots/am-i-responsive.PNG)
 
 ## Introduction
 
@@ -447,6 +447,11 @@ I hypothesizes that a student's gender has an effect on their participation in t
 The project is deployed here:
 https://student-exam-scores-analysis.herokuapp.com/
 
+When conducting deployments on Heroku, I noticed the following warning message:
+`Warning: Your slug size (418 MB) exceeds our soft limit (300 MB) which may affect boot time.`
+
+I am currently unsure if this has any particular complications or consequences. Some quick testing with loading and reloading the Streamlit dashboard shows that the app loads quickly.
+
 ## Wireframes
 
 Below are the wireframes I constructed early on in development for how I initially conceived the dashboard to look. The final design ended up being considerably different. Firstly, there are 2 additional pages, a result of deciding to split the data analysis page into 3 separate pages, in the same vein as the data analysis notebooks. Secondly, the model interface page looks different, a result of a closer inspection of the Churnometer project's code for making predictions.
@@ -521,62 +526,94 @@ This section holds all of the resources, links, people, libraries, packages and 
 
 ### Technologies
 
-Github
+- Github was used to create the project's repository and store the project's files
 
-Gitpod
+- Gitpod was used to create and edit the project's files
 
-Slack
+- Heroku was used to deploy the project
 
-Balsamiq
+- Slack was used to communicate my Mentor
+
+- Balsamiq was used to create wireframes of the project's dashboard
+
+- Kaggle was used to source the dataset for this project, and provide an API token allowing it to be downloaded
 
 ### Libraries and Packages
 
-NumPy
+- [NumPy](https://numpy.org/) was used for basic mathematical operations such as standard deviations and mean values
 
-Pandas
+- [Pandas](https://pandas.pydata.org/) was used for many operations:
+    - Loading CSV files into Series and Dataframes
+    - Saving Series and Dataframes as CSV files
+    - Creating and modifying Series and Dataframes
+    - Creating a Pandas Profile Report to initially explore the data
+    - The correlation method for conduction the correlation study
 
-Matplotlib
+- [MatPlotLib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/) were used for constructing plots to visualise my data analyses, in particular countplots and barplots
 
-Seaborn
+- [Plotly](https://plotly.com/python/) was used for constructing interactive plots to visualise my data analyses, in particular several parallel plots
 
-Plotly
+- [Feature Engine](https://feature-engine.readthedocs.io/en/1.1.x/) was used for machine learning tasks:
+    - The OrdinalEncoder allowed me to encode categorical variables within the various pipelines used in this project
+    - The EqualFrequencyDiscretiser and ArbitraryDiscretiser modules enabled me to discretise the datasets for the classification tasks
+    - The OneHotEncoder enabled me to encode the dataset for the correlation study 
+    - The Box-Cox and Yeo-Johnson transformers were used to transform the data in an effort to make it more normally distributed 
 
-Feature Engine
+- [SciKit Learn](https://scikit-learn.org/stable/) was used for many machine learning tasks:
+    - Provided the various algorithms used to train the regression and classification model
+    - Pipeline for building machine learning pipelines
+    - SelectFromModel for feature selection steps in the pipelines
+    - Train-Test Split for creating train and test sets
+    - Make Scorer and Recall Score for assessing algorithm and hyperparameter performance
+    - Classification Report and Confusion Matrix for constructing classification reports and confusion matrices for assessing model performance
 
+- [XGBBoost](https://xgboost.readthedocs.io/en/latest/index.html) provided the XGBoost Regressor and XGBoost Classifier algorithms 
 
+- [Pinguoin](https://pingouin-stats.org/api.html) was used for the Shapiro-Wilk test for normal distribution
+
+- [Predictive Power Score](https://github.com/8080labs/ppscore) was used for conducting a Predictive Power Score analysis
 
 ### Resources
 
+The following resources were used to assist in the construction of this project:
+
+- The dataset used in this project is located [here](https://www.kaggle.com/datasets/whenamancodes/students-performance-in-exams)
+
+- [My Fork of the Churnometer Walkthrough Project](https://github.com/AdamBoley/churnometer) proved to be of immense assistance. Firstly, I took several code blocks from it, which were used in the regression and classification model training. These are:
+    - The HyperparameterOptimizationSearch class, used for testing several algorithms and their hyperparameters
+    - The functions for generating a classification report and a confusion matrix
+    - The code for assessing feature importance
+
+- Secondly, the Churnometer project provided a general structure for me to follow in planning and executing this project. The idea of conducting a machine learning project was daunting early on, and following the workflow of the Churnometer project was useful in getting this project off the ground so that I could settle into it and make it my own
+
+- [This StackOverflow Question](https://stackoverflow.com/questions/34734940/row-wise-average-for-a-subset-of-columns-with-missing-values) helped me calculate average row values in a dataframe, and hence was useful when adding the average_score column to the dataset
+
+- [This StackOverflow Question](https://stackoverflow.com/questions/40088585/turn-off-error-bars-in-seaborn-bar-plot) helped me add numerical values to barplots and remove errors bars
+
+- [This StackOverflow Question](https://stackoverflow.com/questions/34615854/seaborn-countplot-with-normalized-y-axis-per-group) helped me construct Seaborn countplots with normalised counts on the y-axis
+
+- [This tutorial](https://www.hostinger.co.uk/tutorials/how-to-remove-files-and-folders-using-linux-command-line/#:~:text=To%20permanently%20remove%20a%20directory,use%20rm%20%2Dr%20%5Bdirname%5D) provided the Linux terminal commands to remove directories and files, which were of particular use when creating directories and saving files
+
+- [This Uk Government webpage](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/936220/Retaining_the_current_grading_system_-_arguments_and_evidence_290419.pdf) helped me think about the number of bins to use in the ML classification tasks
+
+- [This TowardDataScience article](https://towardsdatascience.com/multi-class-metrics-made-simple-part-i-precision-and-recall-9250280bddc2) and [its companion](https://towardsdatascience.com/multi-class-metrics-made-simple-part-ii-the-f1-score-ebe8b2c2ca1) helped me understand the precision and recall metrics used in the classification reports and confusion matrices
+
+- [This MatPlotLib documentation page](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D) was used to add lines to custom legends, which was put to particular use in the data-analysis-3 notebook
+
+- [This TowardsDataScience article](https://towardsdatascience.com/how-to-use-your-own-color-palettes-with-seaborn-a45bf5175146) was used to add custom colour palettes to Seaborn plots, which was put to particular use in the data-analysis-3 notebook
+
+- [This StackOverflow question](https://stackoverflow.com/questions/19125722/adding-a-legend-to-pyplot-in-matplotlib-in-the-simplest-manner-possible) and [this question as well](https://stackoverflow.com/questions/39500265/how-to-manually-create-a-legend) were also used to help construct custom legends
+
+- [This discussion board](https://discuss.streamlit.io/t/how-to-indent-bullet-point-list-items/28594/2) helped me add bullet points to the Streamlit dashboard
+
+- [This StackOverflow question](https://stackoverflow.com/questions/54735877/seaborn-countplot-series-doesnt-recognize-input) helped me construct barplots from Pandas Series
+
+- [This page](https://twemoji.maxcdn.com/2/test/preview.html) was used to provide a custom favicon for the multipage.py multiple page controller
+
 ### Acknowledgements
 
-https://stackoverflow.com/questions/34734940/row-wise-average-for-a-subset-of-columns-with-missing-values - for average row values
+I would like to thank my Mentor, Marcel Mulders, for helping me plan and execute this project, as well as providing guidance on particular aspects to investigate 
 
-https://stackoverflow.com/questions/40088585/turn-off-error-bars-in-seaborn-bar-plot - add values to barplots and remove confidence intervals
-
-https://stackoverflow.com/questions/34615854/seaborn-countplot-with-normalized-y-axis-per-group - seaborn countplot with normalised y-axis counts
-
-https://www.hostinger.co.uk/tutorials/how-to-remove-files-and-folders-using-linux-command-line/#:~:text=To%20permanently%20remove%20a%20directory,use%20rm%20%2Dr%20%5Bdirname%5D - linux terminal commands
-
-https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/936220/Retaining_the_current_grading_system_-_arguments_and_evidence_290419.pdf - ofsted ranking system for justifying number of classification bins
-
-https://towardsdatascience.com/multi-class-metrics-made-simple-part-i-precision-and-recall-9250280bddc2
-
-https://towardsdatascience.com/multi-class-metrics-made-simple-part-ii-the-f1-score-ebe8b2c2ca1
-
-https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D - for adding lines to custom legends
-
-https://towardsdatascience.com/how-to-use-your-own-color-palettes-with-seaborn-a45bf5175146 - custom colour palettes for seaborn plots
-
-https://stackoverflow.com/questions/19125722/adding-a-legend-to-pyplot-in-matplotlib-in-the-simplest-manner-possible
-and 
-https://stackoverflow.com/questions/39500265/how-to-manually-create-a-legend - for custom legends as well
-
-https://discuss.streamlit.io/t/how-to-indent-bullet-point-list-items/28594/2 - for Streamlit bullet points
-
-https://stackoverflow.com/questions/54735877/seaborn-countplot-series-doesnt-recognize-input - construct barplots from series
-
-https://twemoji.maxcdn.com/2/test/preview.html - used to find an emoji favicon for multipage
+I would also like to thank Niel McEwan, who discussed normal distribution, skewness and kurtosis over Slack with me, and helped me understand what was causing the Shapiro-Wilk normal distribution test that was conducted in the data-analysis-1 notebook to fail
 
 
-Performance:
-`Warning: Your slug size (418 MB) exceeds our soft limit (300 MB) which may affect boot time.`
