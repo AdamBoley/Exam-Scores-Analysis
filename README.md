@@ -302,18 +302,96 @@ Once that was done, I used the OrdinalEncoder to encode the categorical variable
 
 ### Math score regression
 
+Notebook `08a-math-score-model-regression.ipynb` deals with my first attempt to train a machine learning model to predict the math_score variable. My thought process was that, because the math_score variable is a continous numerical variable, that a regression model would be the best approach, with the goal of being able to predict a student's exact math score. Given that this was my first real attempt to train a machine learning model myself, I decided to closely follow the workflow presented in the Predict Tenure Notebook of the Churnometer walkthrough project.
+
+I first loaded the dataset, and removed the reading_score, writing_score and average_score variables. I then split that dataset into train and test sets, using a standard 20% of the data for the test set.
+
+I then defined the pipeline. From the Feature Engineering notebook, I knew that any pipelines would not require a SmartCorrelatedSelection step. I therefore decided to include an OrdinalCategoricalEncoder step, a FeatureScaling step, a FeatureSelection step, and finally a Model step.
+
+I then defined the custom HyperparameterOptimizationSearch class, taken directly from the Churnometer project. I then defined 2 dictionaries - one to hold the regression algorithms, and a second to hold the default hyperparameters of those algorithms.
+
+I then called that HyperparameterOptimizationSearch class to fit models using the algorithms and those algorithms' default hyperparameters. After these models had been fitted, I inspected the results.
+
+The results dataframe showed that all of the algorithms had very poor performance across the board. The LinearRegression algorithm performed best with a mean score of 0.24. The RandomForestRegressor performed next best with a score of 0.22. Given that the next step of the workflow was to optimise the hyperparameters, and given that the LinearRegressor has no hyperparameters to optimise, I decided to take both top performers forward for further consideration. I defined new dictionaries - one to hold the RandomForestRegressor and another to hold the RandomForestRegressor's hyperparameters. I then called the HyperparameterOptimizationSearch again using these new dictionaries, fitting models using the RandomForestRegressor and various combinations of hyperparameters.
+
+When I inspected the results, I was disappointed to find that the RandomForestRegressor had only seen a slight increase in mean_score to 0.24.
+
+I then proceeded to assess feature importance, which was only possible with the RandomForestRegressor. Feature importance was assessed using the code block taken directly from the Predict Tenure notebook of the Churnometer Walkthrough project. This code showed that the lunch_program, ethnicity and parental_education variables were the most important features, and of these, showed that the lunch_program variable was the most important. This tallies with the conclusions drawn in the data analysis notebooks.
+
+I then moved on to the workflow step of evaluating performance on the train and test sets, again using a code cell of three functions taken directly from the Predict Tenure notebook of the Churnometer project.
+
+I called these functions twice, one for the LinearRegressor and again for the RandomForestRegressor. Per the walkthrough project videos, I was primarily interested in the R2 scores. In both cases, these were poor - 0.261 and 0.122 for the train and test sets respectively for the LinearRegressor, and 0.298 and 0.19 for the train and test sets respectively for the RandomForestRegressor. The plots were also poor, with no real pattern discernable.
+
+Per the Churnometer project, I considered trying a Principal Component Analysis. In the Churnometer project, the Principal Component Analysis delivered somewhat improved performance. However, I determined that, even if the performance of my model improved by the same amount, that the performance would still not be good enough. I therefore decided to abandon my attempts to train a regression model and instead converted to training a classification model instead. 
+
 ### Math score classification
+
+Notebook `08b-math-score-model-classification.ipynb` deals with my second attempt to train a model to machine learning model to predict a student's math score. After the poor performance of regression-based models, I hoped that a classification model would provide better performance. As with training a regression model, I decided to closely follow the workflow as presented in the Churnometer project.
+
+A classification model for this dataset required that students should be sorted into bins or classes. The Churnometer project immediately moves into using 3 bins. I considered using the same approach, but then I decided that it would be a good idea to explore the outcome of using 4 bins as well. Later on in development, I decided to go back over this notebook and explore a 2-bin binary classification approach as well.
+
+As I would be essentially repeating the same workflow, just with different numbers of bins, I decided to apply an object-oriented approach. I defined the following once:
+- the HyperparameterOptimizationSearch class
+- the classification pipeline
+- the dictionaries holding the classification algorithms and the default hyperparameters
+- the functions for constructing confusion matrices and classification reports
+
+This was done so that I would not have to define these again in each section, lengthening a notebook that was already shaping up to be very long.
+
+I then moved on to preparing the dataset for a 3-bin classification approach. Still following the Churnometer project closely, I used the EqualFrequencyDiscretiser to discretise the math_score variable into 3 bins. I then split the discretised dataset into train and test sets. I then called the HyperparameterOptimizationSearch class to fit models, and inspected the results. The DecisionTreeClassifier algorithm performed best, with a mean_score of 0.62. 
+
+I then moved on to optimising the DecisionTreeClassifier algorithm's hyperparameters. To do this, I defined 2 new dictionaries - one to hold the DecisionTreeClassifier and another to hold the hyperparameters to try. I then called the HyperparameterOptimizationSearch class again and inspected the results. The results were somewhat disappointing, as optimising the hyperparameters had failed to improve the DecisionTreeClassifer's performance.
+
+I then moved on to assessing the feature importance, again re-using the code block from the Churnometer project. The plot produced by this code indicated that the DecisionTreeClassifier had been trained on the ethnicity and parental_education variables. This was interesting, since my data analysis studies had shown that the lunch_program variable had a larger influence on performance than these variables, so I was surprised to see it missing.
+
+The next step in the workflow was to construct a classification report and confusion matrix. I called the clf_performance function that had been defined at the top of the notebook. Per the Churnometer project, I decided to take the Recall score on the lowest-scoring class as the most important metric, as the entire point of the project is to be able to predict these students. For the train set, the Recall score was 0.62 and for the test set, it was 0.63. At the time, I considered this to be acceptable performance, if not stellar.
+
+I then repeated the above workflow for the 4-bin approach. The 4-bin approach used the XGBClassifer algorithm, and hyperparameter optimisation failed to improve performance. Interestingly, the feature importance section identified the lunch_program variable as being the only feature the model was trained on. The classification report showed poor performance. The Recall score on the lowest-scoring class was 0.60 and 0.58 for the train and test set respectively, but was 0 for the two middle classes, indicating that the model had failed to predict these classes. 
+
+At the time of training the 3-bin and 4-bin approaches, I decided to proceed with using the 3-bin approach, thanks to the superior recall scores. However, later on as I was writing my conclusions and preparing to code the Streamlit dashboard, I decided to explore the 2-bin binary classification approach. I used the same workflow as above, and identified the DecisionTreeClassifier as the best algorithm, though hyperparameter optimisation failed to improve performance. Feature importance analysis identified the lunch_program, ethnicity and parental_education variables as the most important. The classification report showed recall scores of 0.68 and 0.51 on the train and test sets respectively.
+
+At this point, I was faced with a decision as to which model to use in the Dashboard. Both had their advantages. The 2-bin approach offered better recall scores and hence better predictive power, whereas the 3-bin approach offered finer classification. I ultimately decided that the 2-bin approach was the one to take forward, as I was interested in making predictions that were as accurate as possible.
+
+I then conducted a final model fitting process, using a new pipeline without a feature selection step, since I had already identified the most important feature variables.
+
+I then saved the discretised and filtered train and test sets, the pipeline, the label map and the feature importance plot.
 
 ### Reading score classification
 
+Notebook `08c-reading-score-model.ipynb` deals with my attempt to train a model to predict a student's reading score. Initially, I considered using the same workflow as with training a math_score model, using a regression approach first with the option of converting to a classification approach. However, given the very poor performance of the math_score regression model, I considered it likely that a reading_score regression model would perform equally as poorly. In order not to waste time, I immediately pursued training a classification model.
+
+As with the math_score classification model, I initially trained models using 3-bin and 4-bin approaches. The 3-bin approach yielded recall scores for the lowest-scoring class of 0.67 and 0.68 for the train and test sets respectively, and used the RandomForestClassifier, which was trained on the ethnicity and parental_education variables.
+
+The 4-bin approach yielded recall scores for the lowest-scoring class of 0.51 and 0.57 for the train and test sets respectively, and used the ExtraTreesClassifier, which was trained on the ethnicity and parental_education variables.
+
+Based on this performance, at the time of model training, I took the 3-bin approach forward. Later on, as with the math_score notebook, I went back over the reading_score notebook and explored the binary 2-bin approach. This yielded recall scores for the lowest-scoring class of 0.88 and 0.85 for the train and test sets respectively, and used the XGBClassifier algorithm, which was trained on the lunch_program and test_preparation_course variables. I was frankly staggered by these recall scores, which indicate excellent predictive power. I immediately decided to take the 2-bin approach forward. I conducted a final fitting process, using a new pipeline without a feature selection step, and then saved the discretised and filtered train and test sets, the pipeline, the label map and the feature important plot.
+
+Later on, as I was going back over the project in the final clean-up phase of the project, I noted that I had defaulted to using the EqualFrequencyDiscretiser in the 2-bin approach. This works well in the math_score notebook, since the break-point between the 2 classes occurs at a math_score of 66.5. The mean value of the math_score is 66.4, which allowed me to label the 2 classes as `below average` and `better than average`. This was not true of the reading_score notebook, where the EqualFrequencyDiscretiser splits the classes at a reading_score of 70, whereas the mean value is 69. Ideally, I wanted the break-point between the classes to be at the mean value, so that I could label them as `below average` and `better than average`, so as to deliver a unified user experience in the dashboard. I therefore decided to explore the outcome of an alternative 2-bin approach using the ArbitraryDiscretiser, manually setting the breakpoint at the average value.
+
+I used the same workflow as in the previous 2-bin approach. However, I was unfortunately disappointed that the recall scores on the lowest-scoring class were 0.49 and 0.55 for the train and test sets respectively. Given that the objective was to maximise recall scores on the lowest-scoring class, I abandoned this approach and kept using the 2-bin approach using the EqualFrequencyDiscretiser.
+
 ### Writing score classification
 
+Notebook `08d-writing-score-model.ipynb` deals with my attempt to train a model to predict a student's writing score. At this point, having trained 2 classification models, I immediately decided to use a classification model for the writing_score variable. As with the previous notebooks, I initially used 3-bin and 4-bin approaches.
+
+The 3-bin approach produced recall scores on the lowest-scoring class of 0.68 and 0.71 for the train and test sets respectively, and used the ExtraTreesClassifier algorithm trained on the ethnicity and parental_education variables.
+
+The 4-bin approach produced recall scores on the lowest-scoring class of 0.45 and 0.48 for the train and test sets respectively, and used the XGBClassifier algorithm trained on the lunch_program and test_preparation_course variables.
+
+Based on this performance, at the time of model training, I took the 3-bin approach forward. As with the other 2 notebooks, I later went back over and explored the 2-bin approach. This yielded recall scores on the lowest performing class of 0.98 and 0.96, and used the GradientBoostingClassifier trained on the lunch_program, test_preparation_course and parental_education variables. I was amazed by these recall scores, which indicate near-perfect predictive power. I immediately decided to take the 2-bin approach forward. I conducted a final fitting process using a new pipeline without the feature selection step, and then saved the filtered and discretised train and test sets, the pipeline, the label map and the feature importance plot.
+
+Later on, as with the reading_score notebook, I explored an alternative 2-bin approach using the ArbitraryDiscretiser for the same reasons as above, as the mean value of the writing_score variable is 68. As the difference between the 2 discretised datasets is a single point, the recall scores on the lowest-scoring class using this approach were 0.91 and 0.87 for the train and test sets respectively. The algorithm was the XGBClassifier trained on test_preparation_course and lunch_program variables, interestingly with the test_preparation_course variable being more important than the lunch_program variable.
+
+The similarity between the recall scores of both 2-bin approaches gave me pause, and seriously considered using the alternative approach. However, I remembered that the objective was to maximise recall scores, so I stuck with the original 2-bin EqualFrequencyDiscretiser approach and its superior recall scores.
+
 ### Conclusions
+
+Notebook `09-conclusions.ipynb` rounds up all of my observations during the model training process. I decided the transpose the confusion matrices and classification reports from all three classification model notebooks into markdown table format
 
 
 ## Hypothesis validation
 
-## Screenshots
+## Screenshots of Dashboard
 
 ## Credits
 
