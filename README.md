@@ -447,29 +447,107 @@ I hypothesizes that a student's gender has an effect on their participation in t
 The project is deployed here:
 https://student-exam-scores-analysis.herokuapp.com/
 
-## Screenshots of Dashboard
+## Wireframes
 
-Below are screenshots of the Deployed Streamlit Dashboard
-
-### Sidebar
+Below are the wireframes I constructed early on in development for how I initially conceived the dashboard to look. The final design ended up being considerably different. Firstly, there are 2 additional pages, a result of deciding to split the data analysis page into 3 separate pages, in the same vein as the data analysis notebooks. Secondly, the model interface page looks different, a result of a closer inspection of the Churnometer project's code for making predictions.
 
 ### Project Summary
 
+![Project Summary](wireframes/project-summary.png)
+
 ### Project Hypotheses
 
-### Distribution Analysis
+![Project Hypotheses](wireframes/project-hypotheses.png)
 
-### Data Analysis Primary
+### Data Analysis
 
-### Data Analysis Secondary
+![Data Analysis](wireframes/data-analysis.png)
 
 ### Hypothesis Validation
 
+![Hypothesis Validation](wireframes/hypothesis-validation.png)
+
 ### Model Information
+
+![Model Information](wireframes/model-information.png)
+
+### Model Interface
+
+![Model Interface](wireframes/predict-exam-scores.png)
+
+## Screenshots of Dashboard
+
+Below are screenshots of the deployed Streamlit Dashboard
+
+### Sidebar
+
+![Sidebar](screenshots/sidebar.PNG)
+
+### Project Summary
+
+![Project Summary](screenshots/project-summary.PNG)
+
+### Project Hypotheses
+
+![Project Hypotheses](screenshots/project-hypotheses.PNG)
+
+### Distribution Analysis
+
+![Distribution Analysis](screenshots/distribution-analysis.PNG)
+
+### Data Analysis Primary
+
+![Data Analysis Primary](screenshots/primary-data-analysis.PNG)
+
+### Data Analysis Secondary
+
+![Data Analysis Secondary](screenshots/secondary-data-analysis.PNG)
+
+### Hypothesis Validation
+
+![Hypothesis Validation](screenshots/hypothesis-validation.PNG)
+
+### Model Information
+
+![Model Information](screenshots/model-information.PNG)
 
 ### Predict Exam Scores
 
+![Model Interface](screenshots/model-interface.PNG)
+
 ## Credits
+
+This section holds all of the resources, links, people, libraries, packages and so on that helped build this project
+
+### Technologies
+
+Github
+
+Gitpod
+
+Slack
+
+Balsamiq
+
+### Libraries and Packages
+
+NumPy
+
+Pandas
+
+Matplotlib
+
+Seaborn
+
+Plotly
+
+Feature Engine
+
+
+
+### Resources
+
+### Acknowledgements
 
 https://stackoverflow.com/questions/34734940/row-wise-average-for-a-subset-of-columns-with-missing-values - for average row values
 

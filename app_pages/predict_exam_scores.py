@@ -101,6 +101,4 @@ def AcquireInputs():
         )
     live_vars[feature] = streamlit_widget
 
-    st.write(live_vars)
-
     return live_vars
