@@ -501,47 +501,78 @@ Below are the wireframes I constructed early on in development for how I initial
 
 ![Model Interface](wireframes/predict-exam-scores.png)
 
-## Screenshots of Dashboard
+## Features
 
-Below are screenshots of the deployed Streamlit Dashboard
+This section discusses the various features of the Streamlit Dashboard, with screenshots of the pages.
 
 ### Sidebar
+
+The sidebar is used for navigation around the dashboard.
 
 ![Sidebar](screenshots/sidebar.PNG)
 
 ### Project Summary
 
+The Project Summary page contains an introductory section, the project's business requirements and some information about the dataset
+
 ![Project Summary](screenshots/project-summary.PNG)
 
 ### Project Hypotheses
+
+The Project Hypothesis page contains the project's 5 primary and 6 secondary hypotheses. Validation of these hypotheses is handled separately.
 
 ![Project Hypotheses](screenshots/project-hypotheses.PNG)
 
 ### Distribution Analysis
 
+The Distribution Analysis page documents my initial exploration of the dataset, and my attempt to determine whether or not the data is normally distributed.
+
+The Distribution Analysis page contains: 
+- the input and output datasets
+- distribution KDE-histograms for the 4 numerical variables
+- QQ Plots for each of the 4 numerical variables
+- The results of the Shapiro-Wilk normal distribution test
+- My discussions about the normal distribution of the data
+
 ![Distribution Analysis](screenshots/distribution-analysis.PNG)
 
 ### Data Analysis Primary
+
+The Data Analysis Primary page documents my data analyses as guided by the primary hypotheses. There are 5 primary hypotheses, and the page has a section for the exploration of each hypothesis. Each section contains 4 plots, one for each numerical variable.
 
 ![Data Analysis Primary](screenshots/primary-data-analysis.PNG)
 
 ### Data Analysis Secondary
 
+The Data Analysis Secondary page documents my data analyses as guided by the Secondary hypotheses. There are 6 secondary hypotheses, and the page has a section for the exploration of each hypothesis. 5 of the sections contain 2 plots and the other contains 5 plots, for 15 plots total. As noted in the dashboard page and in the notebooks, the plots in each section must be viewed together.
+
 ![Data Analysis Secondary](screenshots/secondary-data-analysis.PNG)
 
 ### Hypothesis Validation
+
+The Hypothesis Validation page documents my validation of the project's hypotheses. Each hypothesis has its own section, coloured to indicate the nature of the hypothesis's validation:
+- Green backgrounds indicate hypotheses validated as absolutely true
+- Yellow backgrounds indicate hypotheses validated as slightly true
+- Red backgrounds indicate hypotheses validated as false
 
 ![Hypothesis Validation](screenshots/hypothesis-validation.PNG)
 
 ### Model Information
 
+The Model Information page documents the 3 machine learning models trained during the project. There are 3 sections - one for each model. Each section contains:
+- A discussion of the model training process
+- The code for the pipeline that was constructed
+- A plot of the features the model was trained on with their relative performances
+- A confusion matrix and classification report for the train and test sets
+- A final discussion of the confusion matrix and classification report
+
 ![Model Information](screenshots/model-information.PNG)
 
 ### Predict Exam Scores
 
-![Model Interface](screenshots/model-interface.PNG)
+The Predict Exam Scores page fulfils business requirement 2, and allows users to use the machine learning models to make predictions. All the user needs to do is select the variable values that describe a student and press the **Make Predictions** button. The predictions will be displayed below in bold. Where the prediction is uncertain, the probability is displayed as well.
 
-### Prediction
+![Model Interface](screenshots/model-interface.PNG)
 
 ![Prediction made](screenshots/prediction.PNG)
 
