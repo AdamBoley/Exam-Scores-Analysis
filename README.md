@@ -4,7 +4,16 @@
 
 ## Introduction
 
-This is a Machine Learning project developed as part of my Predictive Analytics studies with Code Institute. This is my 5th Portfolio Project.
+This is a Machine Learning project developed as part of my Predictive Analytics studies with Code Institute. This is my 5th Portfolio Project. It is based on a dataset of student exam scores.
+
+The Project is both a data analysis and a machine learning application. The data analysis helps users understand what factors affect student exam results and to what degree. The machine learning application allows users to input student information and get predictions of how well they will do in their exams.
+
+The project is deployed here:
+https://student-exam-scores-analysis.herokuapp.com/
+
+## Table of Contents
+
+- []()
 
 ## Business Requirements
 
@@ -18,7 +27,7 @@ The local government wants to increase educational attainment in its schools, pr
 
 ## Dataset
 
-The local government has uploaded the dataset to Kaggle. It is located [here](https://www.kaggle.com/datasets/whenamancodes/students-performance-in-exams).
+The local government uploaded the dataset to Kaggle. It is located [here](https://www.kaggle.com/datasets/whenamancodes/students-performance-in-exams).
 
 Before any data analysis takes place, a quick inspection of the data indicates that it has value for a hybrid demographical-educational analysis of how student circumstances affect test scores.
 
@@ -390,6 +399,16 @@ The similarity between the recall scores of both 2-bin approaches gave me pause,
 
 Notebook `09-conclusions.ipynb` rounds up all of my observations during the model training process. I decided the transpose the confusion matrices and classification reports from all three classification model notebooks into markdown table format. I then discussed my observations.
 
+### A note on label maps
+
+Though the machine learning models are all 2-bin classification models trained on datasets discretised using the EqualFrequencyDiscretiser, they have different label maps, or names for the 2 classes. This is because of where the split (or break-point, as I call it) between the classes in the EqualFrequencyDiscretiser occurs:
+
+- In the math_score model, the split occurs at 66.5. The mean value of the math_score is 66.4. As a decimal value, no student can exactly score the mean value, so I have designated the classes as **below average** and **above average**.
+
+- In the reading_score model, the split occurs at 70, where the mean value is 69. Therefore, students can score the mean score. Those who do are sorted into the lower-scoring class. Hence, I have designated the classes as **average or below** and **better than average**. This is not ideal, but as I have described above, the attempt to set the break-point manual using the ArbitraryDiscretiser produced poor recall scores, and so was not used.
+
+- In the writing_score model, the split occurs at 68, where the mean value is 67.7. As a decimal value, no student can exactly score the mean value, so I have designated the classes as **below average** and **above average**.
+
 ## Hypothesis validation
 
 Each of the project's hypotheses are validated in the sections of notebooks `03-data-analysis-2` and `04-data-analysis-3` that examine them. The hypotheses are also validated in the Hypothesis Validation page of the [Streamlit dashboard](https://student-exam-scores-analysis.herokuapp.com/). However, since the hypotheses are laid down in the Readme, it is useful to validate them here as well.
@@ -450,7 +469,9 @@ https://student-exam-scores-analysis.herokuapp.com/
 When conducting deployments on Heroku, I noticed the following warning message:
 `Warning: Your slug size (418 MB) exceeds our soft limit (300 MB) which may affect boot time.`
 
-I am currently unsure if this has any particular complications or consequences. Some quick testing with loading and reloading the Streamlit dashboard shows that the app loads quickly.
+When I load the dashboard outside of Heroku, it takes about 10 seconds to load, but this appear to be the only consequence of the warning message.
+
+When deploying the project, I ran into a small bug. Heroku defaults to the Heroku-22 stack, whereas the project uses Python 3.8.11, which are incompatible with each other. Therefore, if you have forked this repository or are using it as a template, be sure to install the Heroku CLI and set the stack to Heroku-20 
 
 ## Wireframes
 
@@ -519,6 +540,23 @@ Below are screenshots of the deployed Streamlit Dashboard
 ### Predict Exam Scores
 
 ![Model Interface](screenshots/model-interface.PNG)
+
+### Prediction
+
+![Prediction made](screenshots/prediction.PNG)
+
+## Testing
+
+### PEP8 Compliance Testing
+
+
+
+
+### Prediction Functionality testing
+
+
+
+
 
 ## Credits
 
