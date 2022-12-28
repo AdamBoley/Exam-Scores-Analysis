@@ -469,9 +469,9 @@ https://student-exam-scores-analysis.herokuapp.com/
 When conducting deployments on Heroku, I noticed the following warning message:
 `Warning: Your slug size (418 MB) exceeds our soft limit (300 MB) which may affect boot time.`
 
-When I load the dashboard outside of Heroku, it takes about 10 seconds to load, but this appear to be the only consequence of the warning message.
+When I load the dashboard outside of Heroku, it takes about 10 seconds to load, but this appears to be the only consequence of the warning message. The app also takes about 10 seconds to load when accessed from my mobile device.
 
-When deploying the project, I ran into a small bug. Heroku defaults to the Heroku-22 stack, whereas the project uses Python 3.8.11, which are incompatible with each other. Therefore, if you have forked this repository or are using it as a template, be sure to install the Heroku CLI and set the stack to Heroku-20 
+When deploying the project, I ran into a small bug. Heroku defaults to the Heroku-22 stack, whereas the project uses Python 3.8.11, which are incompatible with each other. Therefore, if you have forked this repository or are using it as a template, be sure to install the Heroku CLI and set the stack to Heroku-20.
 
 ## Wireframes
 
@@ -549,8 +549,63 @@ Below are screenshots of the deployed Streamlit Dashboard
 
 ### PEP8 Compliance Testing
 
+The project contains a number of Python files. I therefore conducted validation of these using [Code Institute's Python Linter](https://pep8ci.herokuapp.com/). The results are below.
 
+#### App Pages
 
+##### Project Summary page
+
+No errors were detected
+
+##### Project Hypothesis page
+
+No errors were detected
+
+##### Distribution Analysis page
+
+Some line too long errors were noted. These were corrected.
+
+##### Data Analysis Primary page
+
+No errors were detected
+
+##### Data Analysis Secondary page
+
+Several line too long errors related to importing images. Left uncorrected so to not disrupt image loading
+
+##### Hypothesis Validation page
+
+No errors were detected
+
+##### Model Information page
+
+3 line too long errors detected related to loading images. These were left uncorrected so as to not disrupt image loading
+
+##### Predict Exam Scores page
+
+No errors were detected
+
+##### Multipage page
+
+No errors were detected
+
+#### SRC directory
+
+##### Data Management
+
+Some line too long errors - corrected
+
+##### Machine Learning Evaluate CLF
+
+No errors
+
+##### Machine Learning Predictive Analysis Interface
+
+Some line too long errors were detected. These were corrected.
+
+#### Jupyter Notebooks
+
+Throughout development, I ran each of the project's Jupyter Notebooks many times. On ocassion, errors were found, and these were always due to changed variable names or missing imports. Running the notebooks without issue is proof that they work as intended. The model training cells can take up to several minutes to execute, but this is to be expected.
 
 ### Prediction Functionality testing
 

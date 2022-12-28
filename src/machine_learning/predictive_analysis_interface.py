@@ -29,14 +29,18 @@ def predict_maths(live_vars, math_features, math_pipeline, math_label_map):
     st.write(statement)
 
 
-def predict_reading(live_vars, reading_features, reading_pipeline, reading_label_map):
+def predict_reading(live_vars,
+                    reading_features,
+                    reading_pipeline,
+                    reading_label_map):
 
     # subset feature variables
     reading_live_vars = live_vars.filter(reading_features)
 
     # Make prediction
     reading_prediction = reading_pipeline.predict(reading_live_vars)
-    reading_prediction_probability = reading_pipeline.predict_proba(reading_live_vars)
+    reading_prediction_probability = (
+        reading_pipeline.predict_proba(reading_live_vars))
 
     # display results
     probability = reading_prediction_probability[0, reading_prediction][0]*100
@@ -58,14 +62,18 @@ def predict_reading(live_vars, reading_features, reading_pipeline, reading_label
     st.write(statement)
 
 
-def predict_writing(live_vars, writing_features, writing_pipeline, writing_label_map):
+def predict_writing(live_vars,
+                    writing_features,
+                    writing_pipeline,
+                    writing_label_map):
 
     # subset feature variables
     writing_live_vars = live_vars.filter(writing_features)
 
     # Make prediction
     writing_prediction = writing_pipeline.predict(writing_live_vars)
-    writing_prediction_probability = writing_pipeline.predict_proba(writing_live_vars)
+    writing_prediction_probability = (
+        writing_pipeline.predict_proba(writing_live_vars))
 
     # display results
     probability = writing_prediction_probability[0, writing_prediction][0]*100

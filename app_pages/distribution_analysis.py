@@ -1,5 +1,6 @@
 import streamlit as st
-from src.data_management import load_output_data, load_input_data, load_shapiro_wilk_data
+from src.data_management import (
+    load_output_data, load_input_data, load_shapiro_wilk_data)
 
 
 def distribution_analysis():
