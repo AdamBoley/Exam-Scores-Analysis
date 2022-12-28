@@ -42,7 +42,7 @@ def model_information():
         " regression model that attempts to exactly predict the value of"
         " math_score. This approach failed. My studies identified 2"
         " machine learning algorithms that performed the best - the"
-        " LinearRegressor and the RandomForestRegressor."
+        f" LinearRegressor and the RandomForestRegressor.\n"
         f"\n"
         "The LinearRegressor algorithm gave R2 scores of 0.261 and 0.122"
         " on the train and test sets respectively."
@@ -53,28 +53,30 @@ def model_information():
         " conducting a Principal Component Analysis in hopes of"
         " improving performance. I discarded this idea as I considered"
         " that it would be unlikely to measurably improve performance"
-        " as the dataset only has 5 categorical variables."
+        f" as the dataset only has 5 categorical variables.\n"
         f"\n"
         "I therefore converted to training a classification model."
         " With this type of model, the goal is to be able to"
         " sort students into a number of categories."
         " These categories represent discrete ranges of scores, meaning"
-        " that students are likely to score within that range."
+        f" that students are likely to score within that range.\n"
         f"\n"
         "I initially used 2 approaches, one using 3 classes and another"
         " using 4 classes. The 3-class approach proved superior, giving"
         " Recall scores of 0.62 and 0.63 on the lowest performing classes"
-        " of the train and test sets respectively."
+        f" of the train and test sets respectively.\n"
         f"\n"
         " At the time, I considered these recall scores to be *decent*, a"
         " shorthand for not great and not poor. In hopes of improving these"
         " scores, I examined the 2-class approach, where students are sorted"
-        " into either *passing* or *failing* classes. The passing class is"
-        " predicted to score greater than 66.5, whereas the failing class"
+        " into either **below average** or **better than average** classes."
+        " The **better than average** class is"
+        " predicted to score greater than 66.5, whereas the"
+        " **below average** class"
         " is predicted to score less than 66.5. Given that the mean value of"
         " the math_score variable is 66.4, I considered this to be a"
-        " good outcome, since the failing class is predicted to score"
-        " below the mean value."
+        " good outcome, since the **below average** class is predicted to"
+        " score below the mean value."
         f"\n"
     )
 
@@ -157,14 +159,15 @@ def model_information():
         "When training a model for predicting the reading_score variable,"
         " I initially considered using the same approach as with the"
         " math_score pipeline, starting with a regression task with the"
-        " backup of a classification task."
-        " However, given the problems in training a regression model,"
+        f" backup of a classification task.\n"
+        f"\n"
+        "However, given the problems in training a regression model,"
         " I decided to begin with a classification task."
         " As with the math_score pipeline, I initially began with"
         " a 3-class and a 4-class approach. The 3-class approach proved"
-        " superior, with recall scores of 0.67 and 0.68"
-        " on the lowest performing class for the train and test sets"
-        " respectively. I considered these recall scores *decent*, but not"
+        " superior, with recall scores of 0.67 and 0.68 on the lowest"
+        " performing class for the train and test sets respectively."
+        " I considered these recall scores to be *decent*, but not"
         " particularly good. I then explored the 2-class approach, which had"
         " far better performance, as we will see below."
     )
@@ -232,13 +235,13 @@ def model_information():
         x_test=reading_test_vars,
         y_test=reading_test_score,
         pipeline=reading_score_pipeline,
-        label_map=["below average", "average or above"])
+        label_map=["average or below", "better than average"])
 
     st.info(
         "As we can see, the reading_score model has fantastic recall"
         " scores on the failing class of 0.88 and 0.85 for the train and test"
-        " sets respectively. This is excellent performance, indicative"
-        " of near-perfect predictive power."
+        " sets respectively. This is brilliant performance, indicative"
+        " of excellent predictive power."
     )
 
     st.write("### Writing Score Pipeline")
@@ -317,11 +320,11 @@ def model_information():
         x_test=writing_test_vars,
         y_test=writing_test_score,
         pipeline=writing_score_pipeline,
-        label_map=["average or below", "better than average"])
+        label_map=["below average", "better than average"])
 
     st.info(
         "As we can see, the reading_score model has fantastic recall"
-        " scores on the failing class of 0.88 and 0.96 for the train and test"
+        " scores on the failing class of 0.98 and 0.96 for the train and test"
         " sets respectively. This is brilliant performance, indicative"
         " of almost-perfect predictive power."
     )
