@@ -41,15 +41,15 @@ The Secondary Hypotheses are those that generally suppose that certain pairs of 
 
 ### Primary
 
-- I hypothesize that students who attend the test preparation course attain higher test scores
+- I hypothesize that a student's gender has an effect on their individual and overall test scores
 
-- I hypothesize that a student's lunch program has an effect on their test scores
+- I hypothesize that a student's ethnicity has an effect on their individual and overall test scores
 
 - I hypothesize that increased levels of parental education correlate with higher test scores. For this hypothesis, I have made the reasonable assumption that better educated parents have a greater focus on education
 
-- I hypothesize that a student's gender has an effect on their individual and overall test scores. It is the opinion of my Mentor that girls tend to perform better in education than boys, and [this article](https://www.theguardian.com/education/2021/aug/10/a-level-results-top-5-data-takeaways) appears to support that opinion
+- I hypothesize that a student's lunch program has an effect on their test scores
 
-- I hypothesize that a student's ethnicity has an effect on their individual and overall test scores
+- I hypothesize that students who attend the test preparation course attain higher test scores
 
 ### Secondary
 
@@ -469,7 +469,7 @@ https://student-exam-scores-analysis.herokuapp.com/
 When conducting deployments on Heroku, I noticed the following warning message:
 `Warning: Your slug size (418 MB) exceeds our soft limit (300 MB) which may affect boot time.`
 
-When I load the dashboard outside of Heroku, it takes about 10 seconds to load, but this appears to be the only consequence of the warning message. The app also takes about 10 seconds to load when accessed from my mobile device.
+When I load the dashboard outside of Heroku, it takes about 30 seconds to load, but this appears to be the only consequence of the warning message. The app also takes about 30 seconds to load when accessed from my mobile device.
 
 When deploying the project, I ran into a small bug. Heroku defaults to the Heroku-22 stack, whereas the project uses Python 3.8.11, which are incompatible with each other. Therefore, if you have forked this repository or are using it as a template, be sure to install the Heroku CLI and set the stack to Heroku-20.
 
@@ -701,7 +701,7 @@ This section holds all of the resources, links, people, libraries, packages and 
 
 The following resources were used to assist in the construction of this project:
 
-- The dataset used in this project is located [here](https://www.kaggle.com/datasets/whenamancodes/students-performance-in-exams)
+- The dataset used in this project is located [here](https://www.kaggle.com/datasets/whenamancodes/students-performance-in-exams). Many thanks to [Aman Chauhan](https://www.kaggle.com/whenamancodes) for creating and uploading this dataset
 
 - [My Fork of the Churnometer Walkthrough Project](https://github.com/AdamBoley/churnometer) proved to be of immense assistance. Firstly, I took several code blocks from it, which were used in the regression and classification model training. These are:
     - The HyperparameterOptimizationSearch class, used for testing several algorithms and their hyperparameters
