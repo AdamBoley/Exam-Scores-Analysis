@@ -20,19 +20,19 @@ def project_hypotheses():
     st.info(
         f"### Primary hypotheses\n"
         f"The primary hypotheses are below"
+        f"\n"
         f"I hypothesize that:\n"
         f"\n"
-        f"1 - Students who attend the Test Preparation Course achieve"
-        f" high exam scores\n"
+        f"1 - A student's gender has an effect on their test scores\n"
         f"\n"
-        f"2 - A students' lunch program affects their exam scores\n"
+        f"2 - A student's ethnicity has an effect on their test scores\n"
         f"\n"
         f"3 - Students of better educated parents achieve higher test scores\n"
         f"\n"
-        f"4 - A student's gender has an effect on their test scores\n"
+        f"4 - A students' lunch program affects their exam scores\n"
         f"\n"
-        f"5 - A student's ethnicity has an effect on their test scores\n"
-        f"\n"
+        f"5 - Students who attend the Test Preparation Course achieve"
+        f" high exam scores\n"
     )
 
     st.info(
