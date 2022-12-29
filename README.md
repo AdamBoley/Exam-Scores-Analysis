@@ -13,13 +13,59 @@ https://student-exam-scores-analysis.herokuapp.com/
 
 ## Table of Contents
 
-- []()
+- [Introduction](#introduction)
+- [Table of Contents](#table-of-contents)
+- [Business Requirements](#business-requirements)
+- [Dataset](#dataset)
+- [Hypotheses](#hypotheses)
+    - [Primary Hypotheses](#primary)
+    - [Secondary Hypotheses](#secondary)
+- [Dashboard pages](#dashboard-pages)
+- [Mapping Business Requirements](#mapping-business-requirements-to-the-data-visualisation-and-machine-learning-tasks)
+    - [Business Requirement 1](#business-requirement-1---data-visualisation-and-correlation-study)
+    - [Business Requirement 2](#business-requirement-2---construction-of-an-appropriate-machine-learning-model)
+    - [Business Requirement 3](#business-requirement-3---construction-of-streamlit-dashboard)
+- [Notebook discussions](#notebook-discussions)
+    - [Data Collection notebook](#data-collection-notebook)
+    - [Data Analysis 1 notebook](#data-analysis-1-notebook)
+    - [Data Analysis 2 notebook](#data-analysis-2-notebook)
+    - [Data Analysis 3 notebook](#data-analysis-3-notebook)
+    - [Correlation Study notebook](#correlation-study-notebook)
+    - [Parallel Plots notebook](#parallel-plots-notebook)
+    - [Feature Engineering notebook](#feature-engineering-notebook)
+    - [Math Score Regression notebook](#math-score-regression-notebook)
+    - [Math Score Classification notebook](#math-score-classification-notebook)
+    - [Reading Score Classification notebook](#reading-score-classification-notebook)
+    - [Writing Score Classification notebook](#writing-score-classification-notebook)
+    - [Conclusions notebook](#conclusions-notebook)
+    - [A note on label maps](#a-note-on-label-maps)
+- [Hypothesis Validation](#hypothesis-validation)
+    - [Primary Hypotheses Validation](#primary-hypotheses-validation)
+    - [Secondary Hypotheses Validation](#secondary-hypotheses-validation)
+- [Deployment](#deployment)
+- [Wireframes](#wireframes)
+- [Features](#features)
+    - [Sidebar](#sidebar)
+    - [Project Summary](#project-summary-page)
+    - [Project Hypotheses](#project-hypotheses-page)
+    - [Distribution Analysis](#distribution-analysis-page)
+    - [Data Analysis Primary](#data-analysis-primary-page)
+    - [Data Analysis Secondary](#data-analysis-secondary-page)
+    - [Hypothesis Validation](#hypotheses-validation-page)
+    - [Model Information](#model-information-page)
+    - [Predict Exam Scores](#predict-exam-scores-page)
+- [PEP8 Compliance Testing](#pep8-compliance-testing)
+- [Credits](#credits)
+    - [Technologies](#technologies)
+    - [Libraries and Packages](#libraries-and-packages)
+    - [Resources](#resources)
+    - [Acknowledgements](#acknowledgements)
 
 ## Business Requirements
 
 The local government wants to increase educational attainment in its schools, primarily by improving test scores in reading, writing and mathematics. They have access to data about past students' test scores, as well as information about those students' circumstances. The local government has contracted me to undertake 3 tasks:
 
-- Firstly, they want me to study the student data to find patterns and relationships, with the goal of identifying the most relevant variables that correlate to high test scores. These correlations will then be used to formulate educational policy with the aim of improving student test scores generally
+- Firstly, they want me to study the student data to find patterns and relationships, with the goal of identifying what variables correlate to high test scores, and to what degree. These correlations will then be used to formulate educational policy with the aim of improving student test scores generally
 
 - Secondly, they want me to produce a Machine Learning tool that their teachers can use to input data about a particular student and get a predictions of that student's test scores. Then, if those test scores fall below the mean of the historical test scores, that student can be offered additional support
 
@@ -90,52 +136,16 @@ Now that the business requirements and data hypotheses have been laid down, it i
 
 ### Business Requirement 2 - Construction of an appropriate Machine Learning model
 - The local government wants to be able to predict student test scores based on their circumstances
+- The local government wants 3 machine learning models - one to predict math scores, one to predict reading scores and another to predict writing scores 
 - As the test scores are continuous numerical variables, a regression based model will be tried first
 - As the feature variables are categorical, it may be that a regression model will fail to perform to an acceptable level
-- If a regression model fails, a classification approach will be used, with student test scores converted to bins, with the best number to be determined through extensive testing
+- If a regression model fails, a classification approach will be used, with student test scores converted to bins, with the best number of bins to be determined through extensive testing
 
 ### Business Requirement 3 - Construction of Streamlit dashboard
 - Once all data analysis, data visualisation and machine learning tasks are completed, the focus of the project can switch to construction of the dashboard
 - All necessary data analysis plots must be saved and inserted into the dashboard pages
 - Appropriate commentary on those plots must be supplied
-- Users must be be able to ineterface with the machine learning models so that they may make predictions
-
-
-## Development cycle log
-In previous projects, I have found it useful to log my progress through the development cycle. Given that I am considering a dataset of significant size and complexity, I shall continue this practice, and I will note any particularly interesting insights.
-
-8/11/22:
-[Student exam scores dataset](https://www.kaggle.com/datasets/whenamancodes/students-performance-in-exams) located on Kaggle. Several other datasets were considered, but I considered that this since dataset contains data about a student's cirsumstances as well as their test scores, a project using this dataset could contain a demographic analysis as well as an analysis of test scores.
-
-After deciding to use this dataset, I noted down some quick thoughts regarding hypotheses, business cases, data cleaning, visualisation, model construction and so on. I booked the first project planning call with my Mentor and he agreed with the general thrust of my analysis approach.
-
-9/11/22:
-Project repository started and workspace built. Necessary data analysis and machine learning packages installed. Business Requirements, hypotheses, dashboard layout, and approach documented in ReadMe.
-
-10/11/22:
-Generate Pandas Profile Report, distribution analysis using QQ plots and Shapiro Wilk tests. Numerical data may or may not be normally distributed. Begin correlation study
-
-11/11/22:
-I think I need to go back one step, and expand the data analysis more in line with the hypotheses, with more plots.
-
-20/11/22:
-Categorical variable relationships analyses, and relevant hypotheses validated. Parental education influences student participation in the test preparation course, and there is a parental education bias in the various ethnicities of the students. 
-
-Correlation study and predictive power score study conducted. For maths, only lunch_program has any significant correlation and predictive power. For reading, lunch_program shows strong predictive power, and lunch_program and test_preparation_course show significant correlation. For writing, lunch_program and test_preparation_course show strong predictive power and significant correlation. 
-
-25/11/22:
-Fit math_score pipeline
-
-27/11/22:
-Fit reading_score pipeline
-
-2/12/22:
-Fit writing_score pipeline
-
-5/12/22:
-Round up performance of all machine learning pipelines
-
-
+- Users must be be able to ineterface with the machine learning models so that they may make predictions by entering student parameters
 
 ## Notebook discussions
 
@@ -269,7 +279,7 @@ In this section I showed that the hypothesis that a student's gender influences 
 
 Based on these studies, I showed that the categorical variables are mostly independent. There is evidence of slight relationships between certain pairs of variables, and definite evidence of a link between parental education and ethnicity.
 
-### Correlation study
+### Correlation study notebook
 
 By this point, I had thoroughly investigated the dataset for correlations and relationships. Before moving onto the machine learning section of the project, I decided to conduct a general correlation study, so as to determine if any of the categorical variables had any particularly strong correlations with the numerical variables, as this may have influenced the model training process. 
 
@@ -293,7 +303,7 @@ For the writing_score variable, the Predictive Power Study indicated that the lu
 
 I determined that when training machine learning models that the lunch_program and test_preparation_course variables would probably feature heavily.
 
-### Parallel plots
+### Parallel plots notebook
 
 I determined that, before begining the process of training machine learning models, that it would be useful to generate Parallel Plots to see how the categorical variables connects to each of the numerical variables. The idea was to reinforce the conclusion that the categorical variables were mostly independent, with only slight relationships between them, as was identified when validating the secondary hypotheses, and also to determine if I had missed any such relationships, as Parallel Plots show the entire dataset on one interactive plot. If I had missed any relationships, they would be visible by noticably clumps of lines between each y-axis.
 
@@ -301,7 +311,7 @@ Before I could construct parallel plots, I first had to sort the numerical varia
 
 Once that had been done, I constructed the parallel plots. These prove that the identified relationships between the categorical variables are slight, as noted, since no patterns can be easily discerned in any of the three parallel plots.
 
-### Feature engineering
+### Feature engineering notebook
 
 Once the parallel plots had been constructed, I decided that there was nothing more that needed to be done regarding the data analysis portion of the project, and that I could move my focus to training machine learning models.
 
@@ -311,7 +321,7 @@ Before I conducted the Smart Correlated Selection, I first created created 3 dat
 
 Once that was done, I used the OrdinalEncoder to encode the categorical variables as integers. I then used the `SmartCorrelatedSelection()` method to determine if there were any features to drop. Fortunately, and in line with our previous analyses, none of the categorical variables needed to be dropped. I therefore concluded that any machine learning pipelines developed in this project would not need a SmartCorrelatedSelection step.
 
-### Math score regression
+### Math score regression notebook
 
 Notebook `08a-math-score-model-regression.ipynb` deals with my first attempt to train a machine learning model to predict the math_score variable. My thought process was that, because the math_score variable is a continous numerical variable, that a regression model would be the best approach, with the goal of being able to predict a student's exact math score. Given that this was my first real attempt to train a machine learning model myself, I decided to closely follow the workflow presented in the Predict Tenure Notebook of the Churnometer walkthrough project.
 
@@ -335,7 +345,7 @@ I called these functions twice, one for the LinearRegressor and again for the Ra
 
 Per the Churnometer project, I considered trying a Principal Component Analysis. In the Churnometer project, the Principal Component Analysis delivered somewhat improved performance. However, I determined that, even if the performance of my model improved by the same amount, that the performance would still not be good enough. I therefore decided to abandon my attempts to train a regression model and instead converted to training a classification model instead. 
 
-### Math score classification
+### Math score classification notebook
 
 Notebook `08b-math-score-model-classification.ipynb` deals with my second attempt to train a model to machine learning model to predict a student's math score. After the poor performance of regression-based models, I hoped that a classification model would provide better performance. As with training a regression model, I decided to closely follow the workflow as presented in the Churnometer project.
 
@@ -367,7 +377,7 @@ I then conducted a final model fitting process, using a new pipeline without a f
 
 I then saved the discretised and filtered train and test sets, the pipeline, the label map and the feature importance plot.
 
-### Reading score classification
+### Reading score classification notebook
 
 Notebook `08c-reading-score-model.ipynb` deals with my attempt to train a model to predict a student's reading score. Initially, I considered using the same workflow as with training a math_score model, using a regression approach first with the option of converting to a classification approach. However, given the very poor performance of the math_score regression model, I considered it likely that a reading_score regression model would perform equally as poorly. In order not to waste time, I immediately pursued training a classification model.
 
@@ -381,7 +391,7 @@ Later on, as I was going back over the project in the final clean-up phase of th
 
 I used the same workflow as in the previous 2-bin approach. However, I was unfortunately disappointed that the recall scores on the lowest-scoring class were 0.49 and 0.55 for the train and test sets respectively. Given that the objective was to maximise recall scores on the lowest-scoring class, I abandoned this approach and kept using the 2-bin approach using the EqualFrequencyDiscretiser.
 
-### Writing score classification
+### Writing score classification notebook
 
 Notebook `08d-writing-score-model.ipynb` deals with my attempt to train a model to predict a student's writing score. At this point, having trained 2 classification models, I immediately decided to use a classification model for the writing_score variable. As with the previous notebooks, I initially used 3-bin and 4-bin approaches.
 
@@ -395,7 +405,7 @@ Later on, as with the reading_score notebook, I explored an alternative 2-bin ap
 
 The similarity between the recall scores of both 2-bin approaches gave me pause, and seriously considered using the alternative approach. However, I remembered that the objective was to maximise recall scores, so I stuck with the original 2-bin EqualFrequencyDiscretiser approach and its superior recall scores.
 
-### Conclusions
+### Conclusions notebook
 
 Notebook `09-conclusions.ipynb` rounds up all of my observations during the model training process. I decided the transpose the confusion matrices and classification reports from all three classification model notebooks into markdown table format. I then discussed my observations.
 
@@ -511,19 +521,19 @@ The sidebar is used for navigation around the dashboard.
 
 ![Sidebar](screenshots/sidebar.PNG)
 
-### Project Summary
+### Project Summary page
 
 The Project Summary page contains an introductory section, the project's business requirements and some information about the dataset
 
 ![Project Summary](screenshots/project-summary.PNG)
 
-### Project Hypotheses
+### Project Hypotheses page
 
 The Project Hypothesis page contains the project's 5 primary and 6 secondary hypotheses. Validation of these hypotheses is handled separately.
 
 ![Project Hypotheses](screenshots/project-hypotheses.PNG)
 
-### Distribution Analysis
+### Distribution Analysis page
 
 The Distribution Analysis page documents my initial exploration of the dataset, and my attempt to determine whether or not the data is normally distributed.
 
@@ -536,19 +546,19 @@ The Distribution Analysis page contains:
 
 ![Distribution Analysis](screenshots/distribution-analysis.PNG)
 
-### Data Analysis Primary
+### Data Analysis Primary page
 
 The Data Analysis Primary page documents my data analyses as guided by the primary hypotheses. There are 5 primary hypotheses, and the page has a section for the exploration of each hypothesis. Each section contains 4 plots, one for each numerical variable.
 
 ![Data Analysis Primary](screenshots/primary-data-analysis.PNG)
 
-### Data Analysis Secondary
+### Data Analysis Secondary page
 
 The Data Analysis Secondary page documents my data analyses as guided by the Secondary hypotheses. There are 6 secondary hypotheses, and the page has a section for the exploration of each hypothesis. 5 of the sections contain 2 plots and the other contains 5 plots, for 15 plots total. As noted in the dashboard page and in the notebooks, the plots in each section must be viewed together.
 
 ![Data Analysis Secondary](screenshots/secondary-data-analysis.PNG)
 
-### Hypothesis Validation
+### Hypotheses Validation page
 
 The Hypothesis Validation page documents my validation of the project's hypotheses. Each hypothesis has its own section, coloured to indicate the nature of the hypothesis's validation:
 - Green backgrounds indicate hypotheses validated as absolutely true
@@ -557,7 +567,7 @@ The Hypothesis Validation page documents my validation of the project's hypothes
 
 ![Hypothesis Validation](screenshots/hypothesis-validation.PNG)
 
-### Model Information
+### Model Information page
 
 The Model Information page documents the 3 machine learning models trained during the project. There are 3 sections - one for each model. Each section contains:
 - A discussion of the model training process
@@ -568,7 +578,7 @@ The Model Information page documents the 3 machine learning models trained durin
 
 ![Model Information](screenshots/model-information.PNG)
 
-### Predict Exam Scores
+### Predict Exam Scores page
 
 The Predict Exam Scores page fulfils business requirement 2, and allows users to use the machine learning models to make predictions. All the user needs to do is select the variable values that describe a student and press the **Make Predictions** button. The predictions will be displayed below in bold. Where the prediction is uncertain, the probability is displayed as well.
 
@@ -576,9 +586,7 @@ The Predict Exam Scores page fulfils business requirement 2, and allows users to
 
 ![Prediction made](screenshots/prediction.PNG)
 
-## Testing
-
-### PEP8 Compliance Testing
+## PEP8 Compliance Testing
 
 The project contains a number of Python files. I therefore conducted validation of these using [Code Institute's Python Linter](https://pep8ci.herokuapp.com/). The results are below.
 
@@ -637,12 +645,6 @@ Some line too long errors were detected. These were corrected.
 #### Jupyter Notebooks
 
 Throughout development, I ran each of the project's Jupyter Notebooks many times. On ocassion, errors were found, and these were always due to changed variable names or missing imports. Running the notebooks without issue is proof that they work as intended. The model training cells can take up to several minutes to execute, but this is to be expected.
-
-### Prediction Functionality testing
-
-
-
-
 
 ## Credits
 
