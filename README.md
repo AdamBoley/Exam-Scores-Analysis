@@ -115,14 +115,23 @@ The Secondary Hypotheses are those that generally suppose that certain pairs of 
 
 This project will be deployed as a Streamlit dashboard. There will be 8 pages:
 
-- Page 1 - A project summary page with an introduction, the project business requirements, and soem basic, surface-level information about the dataset and its variables
+- Page 1 - A project summary page with an introduction, the project business requirements, and some basic, surface-level information about the dataset and its variables
+
 - Page 2 - The project's hypotheses, absent any validation
-- Page 3 - A distribution analysis of the dataset, to determine whether the data is normally distributed
-- Page 4 - Data Analysis as guided by the Primary Hypotheses, with plots that show the correlations between each of the categorical feature variables and the numerical target variables
-- Page 5 - Data Analysis as guided by the Secondary Hypotheses, with plots that show the correlations and links between certain pairs of categorical variables
-- Page 4 - The validation of the Project's hypotheses, based on any relevant findings identified in the data analysis pages
-- Page 5 - Information about the predictive machine learning models that were trained 
-- Page 6 - A user interface that allows the user to use the Machine Learning models to make predictions of student scores
+
+- Page 3 - A distribution analysis of the dataset, to determine whether the data is normally distributed. This page will contribute to fulfilling Business Requirement 1
+
+- Page 4 - Data Analysis as guided by the Primary Hypotheses, with plots that show the correlations between each of the categorical feature variables and the numerical target variables. This page will contribute to fulfilling Business Requirement 1
+
+- Page 5 - Data Analysis as guided by the Secondary Hypotheses, with plots that show the correlations and links between certain pairs of categorical variables. This page will contribute to fulfilling Business Requirement 1
+
+- Page 4 - The validation of the Project's hypotheses, based on any relevant findings identified in the data analysis pages. This page will finish fulfilling Business Requirement 1
+
+- Page 5 - Information about the predictive machine learning models that were trained
+
+- Page 6 - A user interface that allows the user to use the Machine Learning models to make predictions of student scores. This page will fulfil Business Requirement 2
+
+- Business Requirement 3 calls for a deployed dashboard, so all of the pages of the dashboard will collectively fulfil Business Requirement 3
 
 ## Mapping Business Requirements to the Data Visualisation and Machine Learning tasks
 
@@ -133,6 +142,7 @@ Now that the business requirements and data hypotheses have been laid down, it i
 - Then I will conduct a distribution study, to determine if the data is normally distributed
 - I will then conduct a data analysis guided by the project hypotheses. The Primary Hypotheses will be investigated first, followed by the Secondary Hypotheses
 - I will then conduct a correlation study and Predictive Power Score analysis to determine which categorical variables have the greatest predictive power
+- Parallel plots will also be constructed to gain an understanding of how the entire dataset works
 
 ### Business Requirement 2 - Construction of an appropriate Machine Learning model
 - The local government wants to be able to predict student test scores based on their circumstances
@@ -642,9 +652,9 @@ No errors
 
 Some line too long errors were detected. These were corrected.
 
-#### Jupyter Notebooks
+#### Jupyter Notebooks Testing
 
-Throughout development, I ran each of the project's Jupyter Notebooks many times. On ocassion, errors were found, and these were always due to changed variable names or missing imports. Running the notebooks without issue is proof that they work as intended. The model training cells can take up to several minutes to execute, but this is to be expected.
+Throughout development, I ran each of the project's Jupyter Notebooks many times. On occasion, errors were found, and these were always due to changed variable names or missing imports. Running the notebooks without issue is proof that they work as intended. The model training cells can take up to several minutes to execute, but this is to be expected. The notebooks were last run on 30/12/22, just prior to projetc submission.
 
 ## Credits
 
