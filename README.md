@@ -161,7 +161,9 @@ Now that the business requirements and data hypotheses have been laid down, it i
 
 In this section I will discuss the various notebooks created and populated in the course of the project. The notebooks themselves have appropriate commentary, but they are long and hence the commentary is spread out. Discussing the notebooks here also allows me to lay down my thinking behind each notebook.
 
-All of the notebooks were initially constructed from a single template that contains the code cells to set the working directory, and the markdown cells to outline the purpose of the notebook. Each notebook is independent, and does not rely on any other notebook, though if you have forked this project or used it as a template, them you must run the first notebook before any others, so that you can download the data from Kaggle.
+All of the notebooks were initially constructed from a single template that contains the code cells to set the working directory, and the markdown cells outline objectives, inputs and outputs of the notebook, as well as any additional commentary. Each notebook is independent, and does not rely on any other notebook, though if you have forked this project or used it as a template, them you must run the first notebook before any others, so that you can download the data from Kaggle.
+
+Also note that I have structured and written the notebooks in the format of a person guiding another through their thought process, and as a result I use the royal *We*, as in "we see that..." or "we note that...". The intent is to guide the user through the notebooks, noting and explaining relevant items. It occurred to me late in development that it may have been more proper to use the impersonal format - "it is noted that..." - but by this time, changing the format would have been a difficult task.
 
 ### Data Collection Notebook
 
@@ -489,7 +491,7 @@ https://student-exam-scores-analysis.herokuapp.com/
 When conducting deployments on Heroku, I noticed the following warning message:
 `Warning: Your slug size (418 MB) exceeds our soft limit (300 MB) which may affect boot time.`
 
-When I load the dashboard outside of Heroku, it takes about 30 seconds to load, but this appears to be the only consequence of the warning message. The app also takes about 30 seconds to load when accessed from my mobile device.
+When I load the dashboard outside of Heroku, it takes about 30 seconds to load, but this appears to be the only consequence of the warning message. The app also takes about 30 seconds to load when accessed from my mobile device. It can also take several seconds to switch between pages, especially if those pages have a lot of content.
 
 When deploying the project, I ran into a small bug. Heroku defaults to the Heroku-22 stack, whereas the project uses Python 3.8.11, which are incompatible with each other. Therefore, if you have forked this repository or are using it as a template, be sure to install the Heroku CLI and set the stack to Heroku-20.
 
@@ -533,7 +535,7 @@ The sidebar is used for navigation around the dashboard.
 
 ### Project Summary page
 
-The Project Summary page contains an introductory section, the project's business requirements and some information about the dataset
+The Project Summary page contains an introductory section, the project's business requirements, where those business requirements are fulfilled, and some information about the dataset.
 
 ![Project Summary](screenshots/project-summary.PNG)
 
@@ -548,25 +550,36 @@ The Project Hypothesis page contains the project's 5 primary and 6 secondary hyp
 The Distribution Analysis page documents my initial exploration of the dataset, and my attempt to determine whether or not the data is normally distributed.
 
 The Distribution Analysis page contains: 
-- the input and output datasets
-- distribution KDE-histograms for the 4 numerical variables
-- QQ Plots for each of the 4 numerical variables
-- The results of the Shapiro-Wilk normal distribution test
+- The raw input dataset as downloaded from Kaggle
+- The modified output dataset that was saved for use within the project
+- KDE-histograms for the 4 numerical variables to determine distribution
+- QQ Plots for each of the 4 numerical variables, each with R2 scores
+- The results of the Shapiro-Wilk normal distribution test on the modified output dataset
 - My discussions about the normal distribution of the data
 
 ![Distribution Analysis](screenshots/distribution-analysis.PNG)
 
+![Distribution Analysis KDE Histogram](screenshots/distribution-analysis-histogram.PNG)
+
+![Distribution Analysis QQ Plot](screenshots/distribution-analysis-qqplot.PNG)
+
 ### Data Analysis Primary page
 
-The Data Analysis Primary page documents my data analyses as guided by the primary hypotheses. There are 5 primary hypotheses, and the page has a section for the exploration of each hypothesis. Each section contains 4 plots, one for each numerical variable.
+The Data Analysis Primary page documents my data analyses as guided by the primary hypotheses. There are 5 primary hypotheses, and the page has a section for the exploration of each hypothesis. Each section contains 4 plots, one for each numerical variable. The plots are simple barplots with the error bars removed and numerical labels added.
 
 ![Data Analysis Primary](screenshots/primary-data-analysis.PNG)
+
+![Data Analysis Primary plot](screenshots/primary-data-analysis-plot.PNG)
 
 ### Data Analysis Secondary page
 
 The Data Analysis Secondary page documents my data analyses as guided by the Secondary hypotheses. There are 6 secondary hypotheses, and the page has a section for the exploration of each hypothesis. 5 of the sections contain 2 plots and the other contains 5 plots, for 15 plots total. As noted in the dashboard page and in the notebooks, the plots in each section must be viewed together.
 
 ![Data Analysis Secondary](screenshots/secondary-data-analysis.PNG)
+
+![Data Analysis Secondary plot](screenshots/secondary-data-analysis-plot.PNG)
+
+![Data Analysis Secondary Parallel Plot](screenshots/secondary-data-analysis-parallel-plot.PNG)
 
 ### Hypotheses Validation page
 
@@ -587,6 +600,12 @@ The Model Information page documents the 3 machine learning models trained durin
 - A final discussion of the confusion matrix and classification report
 
 ![Model Information](screenshots/model-information.PNG)
+
+![Model Information Pipeline Code](screenshots/model-information-pipeline-code.PNG)
+
+![Model Information Feature Importance Plot](screenshots/model-information-feature-importance.PNG)
+
+![Model Information Report](screenshots/model-information-reports.PNG)
 
 ### Predict Exam Scores page
 

@@ -44,6 +44,25 @@ def project_summary():
     )
 
     st.info(
+        "### Business Requirement fulfilment"
+        f"\n\n"
+        "The first business requirement is fulfilled via the"
+        " Distribution Analysis page, Data Analysis"
+        " Primary page and the Data Analysis Secondary page."
+        " These pages explore the dataset. Additional fulfilment"
+        " is provided via the Project Hypothesis and"
+        " Hypothesis Validation pages"
+        f"\n\n"
+        "The second business requirement is fulfilled via the"
+        " Model Information and Predict Exam Scores pages."
+        " These pages discuss the models and allow users to"
+        " interact with them to make predictions"
+        f"\n\n"
+        "The existence of this dashboard fulfils the third"
+        " business requirement."
+    )
+
+    st.info(
         f"### Dataset Information\n"
         f"The dataset has 5 feature variables.\n"
         f" These are non-numerical categorical variables.\n"

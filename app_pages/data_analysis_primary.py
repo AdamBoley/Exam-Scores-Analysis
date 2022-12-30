@@ -9,9 +9,11 @@ def data_analysis_primary():
     st.info(
         "On this page I will present the plots that I will use"
         " to validate the primary hypotheses."
-        f"\n"
+        f"\n\n"
+        "This page will partially fulfil business requirement 1."
+        f"\n\n"
         "Before I do so, I will recap the modified dataset, as this was the"
-        " dataset used to formulate these plots"
+        " dataset used to formulate these plots."
         )
 
     df_output = load_output_data()

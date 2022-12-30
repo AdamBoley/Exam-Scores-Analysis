@@ -13,7 +13,8 @@ def predict_exam_scores():
     st.info(
         "This page contains an interface that allows the user"
         " to interact with the 3 pipelines and use the models"
-        " to make predictions."
+        " to make predictions. This page completes the fulfilment of"
+        " business requirement 2."
     )
 
     # load files

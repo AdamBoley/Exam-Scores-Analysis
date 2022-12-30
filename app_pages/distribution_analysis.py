@@ -7,6 +7,16 @@ def distribution_analysis():
 
     st.write("## Data Distribution Analysis")
 
+    st.info(
+        "On this page, I will present the results of the"
+        " distribution study conducted as part of the project."
+        " The distribution study was conducted to determine"
+        " whether this dataset's numerical variables were normally"
+        " distributed."
+        f"\n\n"
+        "This page will partially fulfil business requirement 1"
+    )
+
     st.write("### Datasets")
 
     df_input = load_input_data()
