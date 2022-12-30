@@ -137,19 +137,19 @@ This project will be deployed as a Streamlit dashboard. There will be 8 pages:
 
 Now that the business requirements and data hypotheses have been laid down, it is now necessary to determine how the business requirements will be achieved and how the hypotheses will be validated
 
-### Business Requirement 1 - Data Visualisation and Correlation Study
+### Business Requirement 1 - Data Visualisation
 - Firstly, I will generally inspect the student test score data via a Pandas Profile Report
 - Then I will conduct a distribution study, to determine if the data is normally distributed
 - I will then conduct a data analysis guided by the project hypotheses. The Primary Hypotheses will be investigated first, followed by the Secondary Hypotheses
-- I will then conduct a correlation study and Predictive Power Score analysis to determine which categorical variables have the greatest predictive power
-- Parallel plots will also be constructed to gain an understanding of how the entire dataset works
+- I will then conduct a Correlation Study and a Predictive Power Score analysis to determine which categorical variables have the greatest predictive power for the target variables
+- Parallel plots will also be constructed to gain an understanding of how the entire dataset works, and gain additional insights
 
 ### Business Requirement 2 - Construction of an appropriate Machine Learning model
 - The local government wants to be able to predict student test scores based on their circumstances
 - The local government wants 3 machine learning models - one to predict math scores, one to predict reading scores and another to predict writing scores 
-- As the test scores are continuous numerical variables, a regression based model will be tried first
-- As the feature variables are categorical, it may be that a regression model will fail to perform to an acceptable level
-- If a regression model fails, a classification approach will be used, with student test scores converted to bins, with the best number of bins to be determined through extensive testing
+- As the test scores are continuous numerical variables, I will try to fit regression models first
+- As the feature variables are categorical, it may be that regression models will fail to perform to an acceptable level
+- If regression models fail, classification models will be fitted instead, in hopes of better performance, with student test scores converted to bins, with the best number of bins to be determined through extensive testing
 
 ### Business Requirement 3 - Construction of Streamlit dashboard
 - Once all data analysis, data visualisation and machine learning tasks are completed, the focus of the project can switch to construction of the dashboard
@@ -435,6 +435,10 @@ Though the machine learning models are all 2-bin classification models trained o
 
 Each of the project's hypotheses are validated in the sections of notebooks `03-data-analysis-2` and `04-data-analysis-3` that examine them. The hypotheses are also validated in the Hypothesis Validation page of the [Streamlit dashboard](https://student-exam-scores-analysis.herokuapp.com/). However, since the hypotheses are laid down in the Readme, it is useful to validate them here as well.
 
+Validation of the hypotheses, along with the data analyses conducted to enable validation fulfils business requirement 1, as we will know what factors affect student exam performance, and to what degree.
+
+As a note to the reader, several of the secondary hypotheses were validated as *slightly true*, meaning that a correlative influence was noted, but that it is not overly strong.
+
 ### Primary Hypotheses Validation
 
 #### Hypothesis 1
@@ -451,7 +455,7 @@ I hypothesized that students with increased levels of parental education score b
 
 #### Hypothesis 4
 
-I hypothesized that a students' gender has an effect on their test scores. This is true. Female students perform better than male students in reading by 5 points and in writing by 7.5 points. Male students perform better than female students in maths by 6.5 points. 
+I hypothesized that a students' gender has an effect on their test scores. This is true. Female students perform better than male students in reading by 5 points and in writing by 7.5 points. Male students perform better than female students in maths by 6.5 points.
 
 #### Hypothesis 5
 
@@ -469,7 +473,7 @@ I hypothesized that increased levels of parental education correlate with increa
 
 #### Hypothesis 8
 
-I hypothesized that a student's ethnicity has an effect on their parent's educational level, or put more simply, that students of certain ethnicities have parents who are better educated. This is true, and not just slightly true. Students of ethnicity groups A and B have parents who are noticably better educated, whereas students of ethnicity groups D and E are noticably less well educated.
+I hypothesized that a student's ethnicity has an effect on their parent's educational level, or put more simply, that students of certain ethnicities have parents who are better educated. This is true, and not just slightly true. Students of ethnicity groups A and B have parents who are noticably better educated, whereas students of ethnicity groups D and E have parents who are noticably less well educated.
 
 #### Hypothesis 9
 
@@ -531,18 +535,21 @@ This section discusses the various features of the Streamlit Dashboard, with scr
 
 The sidebar is used for navigation around the dashboard.
 
+Sidebar:
 ![Sidebar](screenshots/sidebar.PNG)
 
 ### Project Summary page
 
 The Project Summary page contains an introductory section, the project's business requirements, where those business requirements are fulfilled, and some information about the dataset.
 
+Project Summary page:
 ![Project Summary](screenshots/project-summary.PNG)
 
 ### Project Hypotheses page
 
 The Project Hypothesis page contains the project's 5 primary and 6 secondary hypotheses. Validation of these hypotheses is handled separately.
 
+Project Hypotheses page:
 ![Project Hypotheses](screenshots/project-hypotheses.PNG)
 
 ### Distribution Analysis page
@@ -557,28 +564,36 @@ The Distribution Analysis page contains:
 - The results of the Shapiro-Wilk normal distribution test on the modified output dataset
 - My discussions about the normal distribution of the data
 
+Distribution Analysis page:
 ![Distribution Analysis](screenshots/distribution-analysis.PNG)
 
+Distribution Analysis KDE-Histogram:
 ![Distribution Analysis KDE Histogram](screenshots/distribution-analysis-histogram.PNG)
 
+Distribution Analysis QQ Plot:
 ![Distribution Analysis QQ Plot](screenshots/distribution-analysis-qqplot.PNG)
 
 ### Data Analysis Primary page
 
 The Data Analysis Primary page documents my data analyses as guided by the primary hypotheses. There are 5 primary hypotheses, and the page has a section for the exploration of each hypothesis. Each section contains 4 plots, one for each numerical variable. The plots are simple barplots with the error bars removed and numerical labels added.
 
+Data Analysis Primary page:
 ![Data Analysis Primary](screenshots/primary-data-analysis.PNG)
 
+Data Analysis Primary barplot:
 ![Data Analysis Primary plot](screenshots/primary-data-analysis-plot.PNG)
 
 ### Data Analysis Secondary page
 
 The Data Analysis Secondary page documents my data analyses as guided by the Secondary hypotheses. There are 6 secondary hypotheses, and the page has a section for the exploration of each hypothesis. 5 of the sections contain 2 plots and the other contains 5 plots, for 15 plots total. As noted in the dashboard page and in the notebooks, the plots in each section must be viewed together.
 
+The Data Analysis Secondary page:
 ![Data Analysis Secondary](screenshots/secondary-data-analysis.PNG)
 
+A pair of typical Data Analysis Secondary plots: 
 ![Data Analysis Secondary plot](screenshots/secondary-data-analysis-plot.PNG)
 
+Data Analysis Secondary Parallel Plots:
 ![Data Analysis Secondary Parallel Plot](screenshots/secondary-data-analysis-parallel-plot.PNG)
 
 ### Hypotheses Validation page
@@ -588,6 +603,7 @@ The Hypothesis Validation page documents my validation of the project's hypothes
 - Yellow backgrounds indicate hypotheses validated as slightly true
 - Red backgrounds indicate hypotheses validated as false
 
+Hypothesis Validation page:
 ![Hypothesis Validation](screenshots/hypothesis-validation.PNG)
 
 ### Model Information page
@@ -599,20 +615,26 @@ The Model Information page documents the 3 machine learning models trained durin
 - A confusion matrix and classification report for the train and test sets
 - A final discussion of the confusion matrix and classification report
 
+Model Information page:
 ![Model Information](screenshots/model-information.PNG)
 
+Pipeline code:
 ![Model Information Pipeline Code](screenshots/model-information-pipeline-code.PNG)
 
+Feature Variable Importance Plot:
 ![Model Information Feature Importance Plot](screenshots/model-information-feature-importance.PNG)
 
+Classification report and confusion matrix:
 ![Model Information Report](screenshots/model-information-reports.PNG)
 
 ### Predict Exam Scores page
 
 The Predict Exam Scores page fulfils business requirement 2, and allows users to use the machine learning models to make predictions. All the user needs to do is select the variable values that describe a student and press the **Make Predictions** button. The predictions will be displayed below in bold. Where the prediction is uncertain, the probability is displayed as well.
 
+Model Interface:
 ![Model Interface](screenshots/model-interface.PNG)
 
+Model Interface after a prediction has been made:
 ![Prediction made](screenshots/prediction.PNG)
 
 ## PEP8 Compliance Testing
@@ -711,8 +733,8 @@ This section holds all of the resources, links, people, libraries, packages and 
 - [Feature Engine](https://feature-engine.readthedocs.io/en/1.1.x/) was used for machine learning tasks:
     - The OrdinalEncoder allowed me to encode categorical variables within the various pipelines used in this project
     - The EqualFrequencyDiscretiser and ArbitraryDiscretiser modules enabled me to discretise the datasets for the classification tasks
-    - The OneHotEncoder enabled me to encode the dataset for the correlation study 
-    - The Box-Cox and Yeo-Johnson transformers were used to transform the data in an effort to make it more normally distributed 
+    - The OneHotEncoder enabled me to encode the dataset for the correlation study
+    - The Box-Cox and Yeo-Johnson transformers were used to transform the data in an effort to make it more normally distributed
 
 - [SciKit Learn](https://scikit-learn.org/stable/) was used for many machine learning tasks:
     - Provided the various algorithms used to train the regression and classification model
@@ -722,7 +744,7 @@ This section holds all of the resources, links, people, libraries, packages and 
     - Make Scorer and Recall Score for assessing algorithm and hyperparameter performance
     - Classification Report and Confusion Matrix for constructing classification reports and confusion matrices for assessing model performance
 
-- [XGBBoost](https://xgboost.readthedocs.io/en/latest/index.html) provided the XGBoost Regressor and XGBoost Classifier algorithms 
+- [XGBBoost](https://xgboost.readthedocs.io/en/latest/index.html) provided the XGBoost Regressor and XGBoost Classifier algorithms
 
 - [Pinguoin](https://pingouin-stats.org/api.html) was used for the Shapiro-Wilk test for normal distribution
 
@@ -769,6 +791,6 @@ The following resources were used to assist in the construction of this project:
 
 I would like to thank my Mentor, Marcel Mulders, for helping me plan and execute this project, as well as providing guidance on particular aspects to investigate 
 
-I would also like to thank Niel McEwan, who discussed normal distribution, skewness and kurtosis over Slack with me, and helped me understand what was causing the Shapiro-Wilk normal distribution test that was conducted in the data-analysis-1 notebook to fail
+I would also like to thank Niel McEwan, who discussed normal distribution, skewness and kurtosis over Slack with me, and helped me understand what was causing the Shapiro-Wilk normal distribution test that was conducted in the `data-analysis-1` notebook to fail
 
 
